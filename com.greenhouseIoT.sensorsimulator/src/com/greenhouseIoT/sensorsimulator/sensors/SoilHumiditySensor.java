@@ -41,8 +41,6 @@ public class SoilHumiditySensor implements Sensor, Actuator, Runnable {
 
 	@Override
 	public void generateData() {
-		// TODO Auto-generated method stub
-		
 		// https://www.drought.gov/topics/soil-moisture
 	    int moisture = rand.nextInt(100);
 	    
@@ -51,30 +49,26 @@ public class SoilHumiditySensor implements Sensor, Actuator, Runnable {
 
 	@Override
 	public void publish(MqttClient client, String topic, String message) {
-		// TODO Auto-generated method stub
 		try {
 			MqttMessage data = new MqttMessage();
 			data.setPayload(message.getBytes());
 			client.publish("home/" + topic, data);
 			System.out.println("Published \"" + data + "\" to topic " + topic);
 		} catch (MqttPersistenceException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (MqttException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		while(active) {
+			generateData();
 			publish(this.client, "greenhouse/soilhumidity", Integer.toString(this.value));
 			try {
 				Thread.sleep(interval);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

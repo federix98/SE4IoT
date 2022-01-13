@@ -52,9 +52,6 @@ services:
       - "3000:3000"
     networks:
       - iot
-    volumes:
-      - ./grafana_data:/var/lib/grafana
-      - ./grafana_conf/defaults.ini:/usr/share/grafana/conf/defaults.ini
     depends_on:
       - influxdb
 
