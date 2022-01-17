@@ -2,3 +2,4 @@
 influxdb_data/
 grafana_data/
 .DS_STORE
+/.idea
