@@ -1,6 +1,0 @@
-{
-  "mqtt:broker:8349984094": {
-    "class": "java.lang.String",
-    "value": ""
-  }
-}
