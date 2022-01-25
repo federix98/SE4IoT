@@ -1,0 +1,13 @@
+sitemap greenhouse label="GreenHouse Smart System" {
+
+    Frame label="Main Room" icon="groundFloor" {
+        Group item=MainRoom
+    }
+
+
+    Frame {
+        Text label="Luce" icon="light" {
+            Default item=Test label="TestLight"
+        }
+    }
+}

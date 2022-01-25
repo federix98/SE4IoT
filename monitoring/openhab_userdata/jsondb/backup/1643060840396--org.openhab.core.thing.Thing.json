@@ -1,0 +1,41 @@
+{
+  "mqtt:broker:8349984094": {
+    "class": "org.openhab.core.thing.internal.BridgeImpl",
+    "value": {
+      "label": "MQTT Broker",
+      "channels": [],
+      "configuration": {
+        "properties": {
+          "certificatepin": false,
+          "enableDiscovery": true,
+          "host": "localhost",
+          "keepAlive": 60,
+          "lwtQos": 0,
+          "lwtRetain": true,
+          "port": 1883,
+          "publickeypin": false,
+          "qos": 0,
+          "reconnectTime": 60000,
+          "secure": false
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "8349984094"
+        ],
+        "uid": "mqtt:broker:8349984094"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "broker"
+        ],
+        "uid": "mqtt:broker"
+      },
+      "location": "MainRoom"
+    }
+  }
+}

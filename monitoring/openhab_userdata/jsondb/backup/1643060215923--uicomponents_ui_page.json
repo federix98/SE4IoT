@@ -1,0 +1,78 @@
+{
+  "overview": {
+    "class": "org.openhab.core.ui.components.RootUIComponent",
+    "value": {
+      "uid": "overview",
+      "tags": [],
+      "props": {
+        "parameters": [],
+        "parameterGroups": []
+      },
+      "timestamp": "Jan 24, 2022, 10:36:55 PM",
+      "component": "oh-layout-page",
+      "config": {
+        "label": "Overview"
+      },
+      "slots": {
+        "default": [
+          {
+            "component": "oh-block",
+            "config": {},
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-grid-row",
+                  "config": {},
+                  "slots": {
+                    "default": [
+                      {
+                        "component": "oh-grid-col",
+                        "config": {},
+                        "slots": {
+                          "default": [
+                            {
+                              "component": "oh-slider-card",
+                              "config": {
+                                "footer": "This is the indicator for the soil moisture of the greenhouse: quantity of the water",
+                                "label": false,
+                                "max": 80.0,
+                                "min": 10.0,
+                                "step": 0.5,
+                                "title": "Soil Moisture",
+                                "unit": "%",
+                                "vertical": 0.0
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "component": "oh-grid-col",
+                        "config": {},
+                        "slots": {
+                          "default": [
+                            {
+                              "component": "oh-slider-card",
+                              "config": {
+                                "footer": "This indicates the quantity of water in the air",
+                                "max": 80.0,
+                                "min": 10.0,
+                                "step": 0.5,
+                                "title": "Air Moisture",
+                                "unit": "%"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

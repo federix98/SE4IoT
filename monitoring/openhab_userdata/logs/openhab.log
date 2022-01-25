@@ -1,0 +1,27 @@
+2022-01-24 22:49:37.256 [INFO ] [.core.internal.i18n.I18nProviderImpl] - Time zone set to 'Europe/Rome'.
+2022-01-24 22:49:37.270 [INFO ] [.core.internal.i18n.I18nProviderImpl] - Locale set to 'it_IT'.
+2022-01-24 22:49:40.776 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'default.items'
+2022-01-24 22:49:41.190 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'default.sitemap'
+2022-01-24 22:49:42.262 [INFO ] [.core.model.lsp.internal.ModelServer] - Started Language Server Protocol (LSP) service on port 5007
+2022-01-24 22:49:42.316 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'testRule.rules'
+2022-01-24 22:49:42.378 [WARN ] [el.core.internal.ModelRepositoryImpl] - Configuration model 'testRule.rules' has errors, therefore ignoring it: [4,1]: no viable alternative at input 'then'
+
+2022-01-24 22:49:42.449 [WARN ] [.transport.servlet.ServletController] - Can't find the request for http://localhost:9876/rest/sitemaps/events/subscribe's Observer 
+2022-01-24 22:49:43.172 [INFO ] [org.openhab.ui.internal.UIService   ] - Started UI on port 8080
+2022-01-24 22:49:43.467 [INFO ] [ab.ui.habpanel.internal.HABPanelTile] - Started HABPanel at /habpanel
+2022-01-24 22:49:43.722 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.
+2022-01-24 22:49:44.270 [INFO ] [.transport.mqtt.MqttBrokerConnection] - Starting MQTT broker connection to 'mosquitto' with clientid d2dac81f-930b-4643-87fb-6eddc73d421b
+2022-01-24 22:49:47.619 [INFO ] [e.automation.internal.RuleEngineImpl] - Rule engine started.
+2022-01-24 22:49:52.324 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.
+2022-01-24 22:49:52.373 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.
+2022-01-24 22:50:05.869 [WARN ] [e.internal.SseItemStatesEventBuilder] - Attempting to send a state update of an item which doesn't exist: undefined
+2022-01-25 00:04:10.897 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.
+2022-01-25 00:04:10.928 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.
+2022-01-25 08:38:36.072 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.
+2022-01-25 08:38:36.093 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.
+2022-01-25 09:42:48.626 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.
+2022-01-25 09:42:48.645 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.
+2022-01-25 09:55:53.378 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.
+2022-01-25 09:55:53.398 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.
+2022-01-25 11:20:25.264 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.
+2022-01-25 11:20:25.285 [WARN ] [sitemap.internal.SitemapProviderImpl] - Filename `default.sitemap` does not match the name `greenhouse` of the sitemap - please fix this as you might see unexpected behavior otherwise.

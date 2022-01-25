@@ -1,0 +1,5 @@
+Group       GreenHouse          "GreenHouse Smart System"           <greenhouse>                            ["Building"]
+
+Group       MainRoom            "Main Room Greenhouse"              <corridor>      (GreenHouse)            ["Room"]
+
+Switch      Test                "Test"                                              (MainRoom)              ["Switchable"]
