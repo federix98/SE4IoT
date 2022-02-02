@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 import com.greenhouseIoT.sensorsimulator.sensors.AirHumiditySensor;
