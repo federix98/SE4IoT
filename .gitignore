@@ -1,5 +1,10 @@
 /.metadata/
 influxdb_data/
 grafana_data/
+*/openhab_userdata/
 .DS_STORE
 /.idea
+/.vscode
+.DS_Store
+.lck
+Archivio.zip
