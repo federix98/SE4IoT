@@ -7,6 +7,7 @@ import com.greenhouseIoT.sensorsimulator.sensors.SoilHumiditySensor;
 import com.greenhouseIoT.sensorsimulator.sensors.SoilPHSensor;
 import com.greenhouseIoT.sensorsimulator.sensors.TemperatureSensor;
 import com.greenhouseIoT.sensorsimulator.sensors.LightSensor;
+import com.greenhouseIoT.sensorsimulator.sensors.Co2Sensor;
 
 public class TestRunning {
 
@@ -46,12 +47,14 @@ public class TestRunning {
 		SoilPHSensor soilPH = new SoilPHSensor(type + "_SoilPHSensor", "greenhouse/" + type + "/soilph");
 		TemperatureSensor tempCels = new TemperatureSensor(type + "_SoilTemperatureSensor", "greenhouse/" + type + "/temperature");
 		LightSensor lightBright = new LightSensor(type + "_LightSensor", "greenhouse/" + type + "/light");
-		
+		Co2Sensor co2Sensor = new Co2Sensor(type + "_Co2Sensor","greenhouse/"+ type + "/co2");
+ 		
 		new Thread(soilHum).start();
 		new Thread(airHum).start();
 		new Thread(soilPH).start();
 		new Thread(tempCels).start();
 		new Thread(lightBright).start();
+		new Thread(co2Sensor).start();
 	}
 
 }
