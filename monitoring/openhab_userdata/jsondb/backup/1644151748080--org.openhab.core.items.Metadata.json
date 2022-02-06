@@ -1,0 +1,32 @@
+{
+  "influxdb:NewItem": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "influxdb",
+          "NewItem"
+        ],
+        "uid": "influxdb:NewItem"
+      },
+      "value": " ",
+      "configuration": {}
+    }
+  },
+  "stateDescription:GenericMQTTThing_TomatoCultivationAirHumidityChannel": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "GenericMQTTThing_TomatoCultivationAirHumidityChannel"
+        ],
+        "uid": "stateDescription:GenericMQTTThing_TomatoCultivationAirHumidityChannel"
+      },
+      "value": " ",
+      "configuration": {
+        "pattern": "%.2f"
+      }
+    }
+  }
+}

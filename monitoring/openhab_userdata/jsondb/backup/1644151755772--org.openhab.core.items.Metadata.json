@@ -1,0 +1,16 @@
+{
+  "influxdb:NewItem": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "influxdb",
+          "NewItem"
+        ],
+        "uid": "influxdb:NewItem"
+      },
+      "value": " ",
+      "configuration": {}
+    }
+  }
+}

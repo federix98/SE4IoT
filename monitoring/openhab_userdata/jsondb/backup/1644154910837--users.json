@@ -1,0 +1,36 @@
+{
+  "admin": {
+    "class": "org.openhab.core.auth.ManagedUser",
+    "value": {
+      "name": "admin",
+      "passwordHash": "3P1kTlkPRoKt+ooKhpAR7JkJXPt3qtxwS0E7NR2qV/1SukntXpy033Eii+37w4qrK33o/WsEfJOQHgD4OVnlvw\u003d\u003d",
+      "passwordSalt": "F++k6oVCA/9eJO6KVQtgckEkcricLcGyQyAbqud5tzvjnizXR/QxmlMyxuk+20A9X9Qw9AlJ8T9J0E0eZyBxKw\u003d\u003d",
+      "roles": [
+        "administrator"
+      ],
+      "sessions": [
+        {
+          "sessionId": "316bbf8f-2aa8-4b79-b889-fa7c518c25bb",
+          "refreshToken": "789a569572f84801838b340b9ebba896",
+          "createdTime": "Jan 30, 2022, 3:32:42 PM",
+          "lastRefreshTime": "Feb 5, 2022, 5:56:30 PM",
+          "clientId": "http://localhost:9876",
+          "redirectUri": "http://localhost:9876",
+          "scope": "admin",
+          "sessionCookie": true
+        },
+        {
+          "sessionId": "fd9048ed-0854-4fbe-960a-5d5f8a8e2dd9",
+          "refreshToken": "bbb0186af3574ef7813ad851b684b10b",
+          "createdTime": "Feb 6, 2022, 1:44:45 PM",
+          "lastRefreshTime": "Feb 6, 2022, 2:41:50 PM",
+          "clientId": "http://localhost:9876",
+          "redirectUri": "http://localhost:9876",
+          "scope": "admin",
+          "sessionCookie": true
+        }
+      ],
+      "apiTokens": []
+    }
+  }
+}
