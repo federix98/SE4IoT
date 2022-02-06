@@ -3,3 +3,9 @@ Group       GreenHouse          "GreenHouse Smart System"           <greenhouse>
 Group       MainRoom            "Main Room Greenhouse"              <corridor>      (GreenHouse)            ["Room"]
 
 Switch      Test                "Test"                                              (MainRoom)              ["Switchable"]
+
+Group:Number:AVG gTempSensors
+
+Number:Temperature tempLivingRoom (gTempSensors) { influxdb="greenhouse" [topic="home/greenhouse/temperature"] }
+Number:Temperature tempKitchen (gTempSensors) { influxdb="greenhouse" [topic="home/greenhouse/soilph"] }
+Number:Temperature t1 (gTempSensors) { influxdb="greenhouse" }

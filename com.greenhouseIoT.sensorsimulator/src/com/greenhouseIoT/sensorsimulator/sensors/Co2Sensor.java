@@ -14,15 +14,19 @@ public class Co2Sensor implements Sensor, Actuator, Runnable{
 
     MqttClient client = null;
 	private Boolean active = false;
-	private int interval = 1000; // 1 sec
+	private int interval = 4000; // 1 sec
 	private Random rand = null;
 	private Integer value = 0;
+    private String name;
+	private String baseTopic;
 
-    public Co2Sensor() throws MqttException{
-        client = new MqttClient("tcp://localhost:1883", "pahomqtt co2sensor");
+    public Co2Sensor(String name, String baseTopic) throws MqttException{
+        client = new MqttClient("tcp://localhost:1883", "pahomqtt co2sensor" + name);
 		client.connect();
 		this.active = true;
 		this.rand = new Random();
+        this.name = name;
+        this.baseTopic = baseTopic;
 		
 		generateData();
     }
@@ -31,7 +35,7 @@ public class Co2Sensor implements Sensor, Actuator, Runnable{
     public void run() {
         while(active) {
             generateData();
-			publish(this.client, "greenhouse/co2", Integer.toString(this.value));
+			publish(this.client, this.baseTopic, Integer.toString(this.value));
 			try {
 				Thread.sleep(interval);
 			} catch (InterruptedException e) {
