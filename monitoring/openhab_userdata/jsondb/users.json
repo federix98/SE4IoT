@@ -28,6 +28,16 @@
           "redirectUri": "http://localhost:9876",
           "scope": "admin",
           "sessionCookie": true
+        },
+        {
+          "sessionId": "06dd8024-70c3-4e75-b033-c26a57495ef5",
+          "refreshToken": "617fe70ab6fd4f72a23431e547e2d551",
+          "createdTime": "Feb 6, 2022, 6:32:18 PM",
+          "lastRefreshTime": "Feb 6, 2022, 6:32:18 PM",
+          "clientId": "http://localhost:9876",
+          "redirectUri": "http://localhost:9876",
+          "scope": "admin",
+          "sessionCookie": true
         }
       ],
       "apiTokens": []

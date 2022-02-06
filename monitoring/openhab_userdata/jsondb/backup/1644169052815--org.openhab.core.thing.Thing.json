@@ -7,7 +7,7 @@
       "configuration": {
         "properties": {
           "certificatepin": true,
-          "clientid": "4a4d613f-b853-4de0-b67b-45fc4ef84ca3",
+          "clientid": "ddc195a4-5a6f-4ba8-9603-eeda2517cd7a",
           "enableDiscovery": true,
           "host": "mosquitto",
           "keepAlive": 60,
@@ -189,38 +189,6 @@
               "topic",
               "5c17c82b8e",
               "82bc2bf28a",
-              "PC_Soilph"
-            ],
-            "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Soilph"
-          },
-          "channelTypeUID": {
-            "segments": [
-              "mqtt",
-              "number"
-            ],
-            "uid": "mqtt:number"
-          },
-          "label": "PC_Soilph",
-          "description": "",
-          "configuration": {
-            "properties": {
-              "commandTopic": "home/greenhouse/potatocultivation/soilph/set",
-              "stateTopic": "home/greenhouse/potatocultivation/soilph"
-            }
-          },
-          "properties": {},
-          "defaultTags": [],
-          "autoUpdatePolicy": "DEFAULT"
-        },
-        {
-          "acceptedItemType": "Number",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mqtt",
-              "topic",
-              "5c17c82b8e",
-              "82bc2bf28a",
               "PC_CO2"
             ],
             "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_CO2"
@@ -238,6 +206,38 @@
             "properties": {
               "commandTopic": "home/greenhouse/potatocultivation/co2/set",
               "stateTopic": "home/greenhouse/potatocultivation/co2"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "5c17c82b8e",
+              "82bc2bf28a",
+              "PC_SoilPH"
+            ],
+            "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_SoilPH"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "PC_SoilPH",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "home/greenhouse/potatocultivation/soilph/set",
+              "stateTopic": "home/greenhouse/potatocultivation/soilph"
             }
           },
           "properties": {},
@@ -436,8 +436,8 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/fruitcultivation/soilph/set",
-              "stateTopic": "home/greenhouse/fruitcultivation/soilph"
+              "commandTopic": "home/greenhouse/fruitcultivation/soilhumidity/set",
+              "stateTopic": "home/greenhouse/fruitcultivation/soilhumidity"
             }
           },
           "properties": {},
@@ -468,8 +468,8 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/potatocultivation/airhumidity/set",
-              "stateTopic": "home/greenhouse/potatocultivation/airhumidity"
+              "commandTopic": "home/greenhouse/fruitcultivation/airhumidity/set",
+              "stateTopic": "home/greenhouse/fruitcultivation/airhumidity"
             }
           },
           "properties": {},
@@ -534,7 +534,7 @@
   "mqtt:topic:a1ee1690fe": {
     "class": "org.openhab.core.thing.internal.ThingImpl",
     "value": {
-      "label": "TomatoCultivation - AirHumidity MQTT Thing",
+      "label": "TomatoCultivation - MQTT Thing",
       "bridgeUID": {
         "segments": [
           "mqtt",

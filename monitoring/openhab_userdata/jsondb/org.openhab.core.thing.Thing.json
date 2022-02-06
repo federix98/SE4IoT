@@ -7,7 +7,7 @@
       "configuration": {
         "properties": {
           "certificatepin": true,
-          "clientid": "4a4d613f-b853-4de0-b67b-45fc4ef84ca3",
+          "clientid": "ddc195a4-5a6f-4ba8-9603-eeda2517cd7a",
           "enableDiscovery": true,
           "host": "mosquitto",
           "keepAlive": 60,
@@ -436,8 +436,8 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/fruitcultivation/soilph/set",
-              "stateTopic": "home/greenhouse/fruitcultivation/soilph"
+              "commandTopic": "home/greenhouse/fruitcultivation/soilhumidity/set",
+              "stateTopic": "home/greenhouse/fruitcultivation/soilhumidity"
             }
           },
           "properties": {},
@@ -468,8 +468,8 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/potatocultivation/airhumidity/set",
-              "stateTopic": "home/greenhouse/potatocultivation/airhumidity"
+              "commandTopic": "home/greenhouse/fruitcultivation/airhumidity/set",
+              "stateTopic": "home/greenhouse/fruitcultivation/airhumidity"
             }
           },
           "properties": {},
