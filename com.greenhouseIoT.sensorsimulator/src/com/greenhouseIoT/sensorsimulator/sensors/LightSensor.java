@@ -47,7 +47,7 @@ public class LightSensor implements Sensor, Actuator, Runnable {
 	public void generateData() {
 		// https://www.drought.gov/topics/soil-moisture
 	    
-	    this.value = rand.nextInt(1023); //ADC Value or called analog value
+	    this.value = rand.nextInt(100);
 	}
 
 	@Override
