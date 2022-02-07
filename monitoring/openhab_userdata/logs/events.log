@@ -15248,3 +15248,56 @@
 2022-02-07 16:52:27.802 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_AirHumidity' changed from 49.24773530124059 to 77.83900227327213
 2022-02-07 16:52:27.804 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_temperature' changed from 4.635179 °C to 20.129517 °C
 2022-02-07 16:52:27.806 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivationMQTTThing_PCCO2' changed from 40 to 4
+2022-02-07 16:52:29.579 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCSoilhumidity' changed from 64 to 25
+2022-02-07 16:52:29.586 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_Light' changed from 5 to 76
+2022-02-07 16:52:29.589 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivation_Light' changed from 58 to 52
+2022-02-07 16:52:29.609 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCSoilPH' changed from 9.335489 to 10.510815
+2022-02-07 16:52:29.617 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_Temperature' changed from 24.154957 to 4.617884
+2022-02-07 16:52:29.619 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCCO2' changed from 4 to 56
+2022-02-07 16:52:29.623 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_SoilHumidity' changed from 27 to 98
+2022-02-07 16:52:29.626 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCTempearature' changed from 37.858562 to 11.144831
+2022-02-07 16:52:29.632 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_CO2' changed from 68 to 62
+2022-02-07 16:52:29.641 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivationMQTTThing_FCSoilph' changed from 9.733354 to 12.094989
+2022-02-07 16:52:29.642 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCAirhumidity' changed from 72.90247693764617 to 35.926283622710756
+2022-02-07 16:52:29.644 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_AirHumidity' changed from 41.87860146434106 to 9.731030885988156
+2022-02-07 16:52:31.760 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_Light' changed from 60 to 21
+2022-02-07 16:52:31.781 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_SoilPH' changed from 6.8351207 to 10.394718
+2022-02-07 16:52:31.788 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_SoilHumidity' changed from 50 to 12
+2022-02-07 16:52:31.797 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivationMQTTThing_PCCO2' changed from 4 to 92
+2022-02-07 16:52:31.799 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_AirHumidity' changed from 77.83900227327213 to 53.49161532264628
+2022-02-07 16:52:31.803 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_temperature' changed from 20.129517 °C to 39.617016 °C
+2022-02-07 16:52:33.589 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_Light' changed from 76 to 65
+2022-02-07 16:52:33.597 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivation_Light' changed from 52 to 26
+2022-02-07 16:52:33.600 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCSoilhumidity' changed from 25 to 84
+2022-02-07 16:52:33.625 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_SoilHumidity' changed from 98 to 80
+2022-02-07 16:52:33.629 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCTempearature' changed from 11.144831 to 36.224094
+2022-02-07 16:52:33.631 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_CO2' changed from 62 to 57
+2022-02-07 16:52:33.634 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivationMQTTThing_FCSoilph' changed from 12.094989 to 0.25409043
+2022-02-07 16:52:33.637 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCAirhumidity' changed from 35.926283622710756 to 64.02569538806978
+2022-02-07 16:52:33.643 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCCO2' changed from 56 to 99
+2022-02-07 16:52:33.650 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCSoilPH' changed from 10.510815 to 0.85993123
+2022-02-07 16:52:33.652 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_AirHumidity' changed from 9.731030885988156 to 5.911354448722161
+2022-02-07 16:52:33.656 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_Temperature' changed from 4.617884 to 17.915321
+2022-02-07 16:52:35.766 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_Light' changed from 21 to 52
+2022-02-07 16:52:35.792 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_SoilPH' changed from 10.394718 to 13.9815035
+2022-02-07 16:52:35.800 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_SoilHumidity' changed from 12 to 24
+2022-02-07 16:52:35.808 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_AirHumidity' changed from 53.49161532264628 to 8.802293771326609
+2022-02-07 16:52:35.809 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_temperature' changed from 39.617016 °C to 14.131856 °C
+2022-02-07 16:52:37.596 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCSoilhumidity' changed from 84 to 83
+2022-02-07 16:52:37.601 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_Light' changed from 65 to 41
+2022-02-07 16:52:37.613 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivation_Light' changed from 26 to 72
+2022-02-07 16:52:37.628 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_SoilHumidity' changed from 80 to 40
+2022-02-07 16:52:37.631 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_AirHumidity' changed from 5.911354448722161 to 73.98290819986035
+2022-02-07 16:52:37.638 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCTempearature' changed from 36.224094 to 12.060835
+2022-02-07 16:52:37.644 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_CO2' changed from 57 to 52
+2022-02-07 16:52:37.646 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivationMQTTThing_FCSoilph' changed from 0.25409043 to 11.08793
+2022-02-07 16:52:37.651 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCCO2' changed from 99 to 2
+2022-02-07 16:52:37.653 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'FruitCultivation_Temperature' changed from 17.915321 to 7.43639
+2022-02-07 16:52:37.655 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCAirhumidity' changed from 64.02569538806978 to 82.41803427266645
+2022-02-07 16:52:37.657 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'TomatoCultivationAirHumidityMQTTThing_TCSoilPH' changed from 0.85993123 to 10.410919
+2022-02-07 16:52:39.769 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_Light' changed from 52 to 36
+2022-02-07 16:52:39.796 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_SoilPH' changed from 13.9815035 to 8.285721
+2022-02-07 16:52:39.800 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_SoilHumidity' changed from 24 to 87
+2022-02-07 16:52:39.805 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivationMQTTThing_PCCO2' changed from 92 to 76
+2022-02-07 16:52:39.806 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_AirHumidity' changed from 8.802293771326609 to 1.6078305785476754
+2022-02-07 16:52:39.812 [INFO ] [openhab.event.ItemStateChangedEvent ] - Item 'PotatoCultivation_temperature' changed from 14.131856 °C to 16.459597 °C
