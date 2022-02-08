@@ -1,0 +1,18 @@
+{
+  "listWidget:FruitCultivation_TemperatureSet": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "listWidget",
+          "FruitCultivation_TemperatureSet"
+        ],
+        "uid": "listWidget:FruitCultivation_TemperatureSet"
+      },
+      "value": "oh-stepper-item",
+      "configuration": {
+        "round": true
+      }
+    }
+  }
+}
