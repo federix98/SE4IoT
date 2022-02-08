@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 import com.greenhouseIoT.sensorsimulator.sensors.AirHumiditySensor;
@@ -16,7 +14,6 @@ public class TestRunning {
 		createCultivation("tomatocultivation");
 		createCultivation("potatocultivation");
 		createCultivation("fruitcultivation");
-		// TODO Auto-generated method stub
 		/*
 		SoilHumiditySensor soilHum = new SoilHumiditySensor();
 		AirHumiditySensor airHum = new AirHumiditySensor();

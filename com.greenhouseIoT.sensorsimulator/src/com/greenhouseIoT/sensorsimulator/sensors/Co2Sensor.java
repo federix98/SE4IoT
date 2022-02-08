@@ -14,11 +14,13 @@ public class Co2Sensor implements Sensor, Actuator, Runnable{
 
     MqttClient client = null;
 	private Boolean active = false;
-	private int interval = 4000; // 1 sec
+	private int interval = 1000; // 1 sec
 	private Random rand = null;
 	private Integer value = 0;
     private String name;
 	private String baseTopic;
+    private Integer fanSpeed = 0;
+    private Integer maxValue = 100;
 
     public Co2Sensor(String name, String baseTopic) throws MqttException{
         client = new MqttClient("tcp://localhost:1883", "pahomqtt co2sensor" + name);
@@ -31,6 +33,10 @@ public class Co2Sensor implements Sensor, Actuator, Runnable{
 		generateData();
     }
 
+    public String getName() {
+        return name;
+    }
+    
     @Override
     public void run() {
         while(active) {
@@ -47,14 +53,24 @@ public class Co2Sensor implements Sensor, Actuator, Runnable{
 
     @Override
     public void subscribe(MqttClient client, String topic) {
-        // TODO Auto-generated method stub
+        try {
+            client.subscribe("/home/" + topic + "/set", (msgTopic, msg) -> {
+                String message = new String(msg.getPayload());
+                // handle message
+                Integer value = 0; // TODO: this value will be retrieved from message
+                trigger(value);
+            });
+            System.out.println("Co2Sensor subscribed to topic: " + topic);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
     }
 
     @Override
     public void trigger(Object data) {
-        // TODO Auto-generated method stub
-        
+        this.fanSpeed = (Integer)data;
+        this.maxValue = 100 - fanSpeed;
     }
 
     @Override
@@ -73,9 +89,8 @@ public class Co2Sensor implements Sensor, Actuator, Runnable{
     }
 
     @Override
-    public void generateData() {
-        
-        this.value = rand.nextInt(100);
+    public void generateData() {   
+        this.value = rand.nextInt(maxValue);
     }
 
     public void stop() {

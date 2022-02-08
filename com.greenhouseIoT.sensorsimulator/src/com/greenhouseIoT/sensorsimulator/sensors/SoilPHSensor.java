@@ -31,6 +31,10 @@ public class SoilPHSensor implements Sensor, Actuator, Runnable{
 		generateData();
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public void run() {
         while(active) {

@@ -36,6 +36,10 @@ public class AirHumiditySensor implements Sensor, Actuator, Runnable, MqttCallba
 		generateData();
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	@Override
 	public void subscribe(MqttClient client, String topic) {
 		// TODO Auto-generated method stub

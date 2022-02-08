@@ -31,6 +31,10 @@ public class SoilHumiditySensor implements Sensor, Actuator, Runnable {
 		generateData();
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	@Override
 	public void subscribe(MqttClient client, String topic) {
 		// TODO Auto-generated method stub

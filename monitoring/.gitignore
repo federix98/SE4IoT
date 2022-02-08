@@ -1,3 +1,5 @@
 /influxdb_data/
 /grafana_data/
+/grafana-data/
+/openhab_userdata/
 
