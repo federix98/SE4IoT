@@ -2,8 +2,6 @@ package com.greenhouseIoT.sensorsimulator.sensors;
 
 import java.util.Random;
 
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
@@ -12,7 +10,7 @@ import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 import com.greenhouseIoT.sensorsimulator.interfaces.Actuator;
 import com.greenhouseIoT.sensorsimulator.interfaces.Sensor;
 
-public class AirHumiditySensor implements Sensor, Actuator, Runnable, MqttCallback {
+public class AirHumiditySensor implements Sensor, Actuator, Runnable {
 	
 	MqttClient client = null;
 	private Boolean active = false;
@@ -21,17 +19,17 @@ public class AirHumiditySensor implements Sensor, Actuator, Runnable, MqttCallba
 	private Double value = 0.0;
 	private String basetopic;
 	private String name;
+	private Integer dehumidifierSpeed = 0;
+	private Float maxValue = 100f;
 	
 	public AirHumiditySensor(String name, String baseTopic) throws MqttException {
 		this.name = name;
 		client = new MqttClient("tcp://localhost:1883", "pahomqtt airhumiditysensor" + name);
 		client.connect();
-		//this.basetopic = "home/greenhouse/airhumidity";
 		this.basetopic = baseTopic;
 		this.active = true;
 		this.rand = new Random();
-		client.subscribe(this.basetopic + "/set");
-		client.setCallback(this);
+		subscribe(client, this.basetopic);
 		
 		generateData();
 	}
@@ -42,20 +40,32 @@ public class AirHumiditySensor implements Sensor, Actuator, Runnable, MqttCallba
 
 	@Override
 	public void subscribe(MqttClient client, String topic) {
-		// TODO Auto-generated method stub
+		try {
+            client.subscribe("/home/" + topic + "/set", (msgTopic, msg) -> {
+				String message = new String(msg.getPayload());
+				System.out.println("A new message arrived from the topic: \"" + msgTopic + "\". The payload of the message is " + message);
+                trigger(Integer.parseInt(message));
+            });
+
+            System.out.println("Air humidity sensor subscribed to topic: " + topic);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
 		
 	}
 
 	@Override
 	public void trigger(Object data) {
-		// TODO Auto-generated method stub
-		
+		this.dehumidifierSpeed = (Integer)data;
+        this.maxValue = 100f - dehumidifierSpeed / 5;	
 	}
 
 	@Override
 	public void generateData() {
 		// https://www.drought.gov/topics/soil-moisture
-	    Double moisture = rand.nextDouble(100);
+	    Double moisture = rand.nextDouble(maxValue);
 	    
 	    this.value = moisture;
 	}
@@ -89,24 +99,6 @@ public class AirHumiditySensor implements Sensor, Actuator, Runnable, MqttCallba
 	
 	public void stop() {
 		this.active = false;
-	}
-
-	@Override
-	public void connectionLost(Throwable arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deliveryComplete(IMqttDeliveryToken arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void messageArrived(String arg0, MqttMessage message) throws Exception {
-		// TODO Auto-generated method stub
-		System.out.println("A new message arrived from the topic: \"" + arg0 + "\". The payload of the message is " + message.toString());
 	}
 
 }

@@ -14,13 +14,14 @@ public class Co2Sensor implements Sensor, Actuator, Runnable{
 
     MqttClient client = null;
 	private Boolean active = false;
-	private int interval = 1000; // 1 sec
+	private int interval = 4000; // 1 sec
 	private Random rand = null;
 	private Integer value = 0;
     private String name;
 	private String baseTopic;
-    private Integer fanSpeed = 0;
-    private Integer maxValue = 100;
+    private Boolean fanOn = false;
+    private Integer minValue = 5;
+    private Integer maxValue = 15;
 
     public Co2Sensor(String name, String baseTopic) throws MqttException{
         client = new MqttClient("tcp://localhost:1883", "pahomqtt co2sensor" + name);
@@ -30,6 +31,8 @@ public class Co2Sensor implements Sensor, Actuator, Runnable{
         this.name = name;
         this.baseTopic = baseTopic;
 		
+        subscribe(client, this.baseTopic);
+
 		generateData();
     }
 
@@ -39,7 +42,18 @@ public class Co2Sensor implements Sensor, Actuator, Runnable{
     
     @Override
     public void run() {
+        long startTime = System.currentTimeMillis();
         while(active) {
+            if ((System.currentTimeMillis() - startTime) / 1000 > 20) {
+                Integer delta = 0;
+                if (fanOn) {
+                    delta = rand.nextInt(-2, 2);
+                } else {
+                    delta = rand.nextInt(-5, 5);
+                }
+                this.maxValue += delta;
+                this.minValue += delta;
+            }
             generateData();
 			publish(this.client, this.baseTopic, Integer.toString(this.value));
 			try {
@@ -56,11 +70,12 @@ public class Co2Sensor implements Sensor, Actuator, Runnable{
         try {
             client.subscribe("/home/" + topic + "/set", (msgTopic, msg) -> {
                 String message = new String(msg.getPayload());
-                // handle message
-                Integer value = 0; // TODO: this value will be retrieved from message
-                trigger(value);
+				System.out.println("A new message arrived from the topic: \"" + msgTopic + "\". The payload of the message is " + message);
+                trigger(Integer.parseInt(message));
             });
+
             System.out.println("Co2Sensor subscribed to topic: " + topic);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -69,8 +84,15 @@ public class Co2Sensor implements Sensor, Actuator, Runnable{
 
     @Override
     public void trigger(Object data) {
-        this.fanSpeed = (Integer)data;
-        this.maxValue = 100 - fanSpeed;
+        if((String) data == "ON") {
+            this.fanOn = true;
+            this.minValue /= 2;
+            this.maxValue /= 2;
+        } else {
+            this.fanOn = false;
+            this.minValue *= 2;
+            this.maxValue += 2;
+        }
     }
 
     @Override
