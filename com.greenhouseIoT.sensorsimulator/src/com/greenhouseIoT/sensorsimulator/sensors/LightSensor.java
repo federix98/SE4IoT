@@ -14,7 +14,7 @@ public class LightSensor implements Sensor, Actuator, Runnable {
 	
 	MqttClient client = null;
 	private Boolean active = false;
-	private int interval = 4000; // 1 sec
+	private int interval = 10000; // 1 sec
 	private Random rand = null;
 	private int value = 0;
 	private String name;

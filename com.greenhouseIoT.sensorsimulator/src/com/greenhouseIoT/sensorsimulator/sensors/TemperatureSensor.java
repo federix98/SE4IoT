@@ -14,7 +14,7 @@ public class TemperatureSensor implements Sensor, Actuator, Runnable {
 	
 	MqttClient client = null;
 	private Boolean active = false;
-	private int interval = 4000; // 1 sec
+	private int interval = 10000; // 1 sec
 	private Random rand = null;
 	private float value = 0;
 	private String name;
