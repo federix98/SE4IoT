@@ -1,5 +1,8 @@
 influxdb_data/
 grafana_data/
 grafana-data/
-openhab_userdata/
+openhab_userdata/logs
+openhab_userdata/tmp
+openhab_userdata/cache
+openhab_userdata/persistence
 node_modules/

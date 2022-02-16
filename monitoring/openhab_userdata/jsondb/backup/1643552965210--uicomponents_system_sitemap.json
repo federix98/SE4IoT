@@ -1,0 +1,40 @@
+{
+  "page_81b5ea6b12": {
+    "class": "org.openhab.core.ui.components.RootUIComponent",
+    "value": {
+      "uid": "page_81b5ea6b12",
+      "tags": [],
+      "props": {
+        "parameters": [],
+        "parameterGroups": []
+      },
+      "timestamp": "Jan 30, 2022, 3:29:24 PM",
+      "component": "Sitemap",
+      "config": {
+        "icon": "",
+        "label": "Main Layout"
+      },
+      "slots": {
+        "widgets": [
+          {
+            "component": "Frame",
+            "config": {
+              "icon": ""
+            },
+            "slots": {
+              "widgets": [
+                {
+                  "component": "Slider",
+                  "config": {
+                    "icon": "humidity",
+                    "label": "Soil Humidity slider"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

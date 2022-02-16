@@ -1,0 +1,311 @@
+{
+  "home": {
+    "class": "org.openhab.core.ui.components.RootUIComponent",
+    "value": {
+      "uid": "home",
+      "tags": [],
+      "props": {
+        "parameters": [],
+        "parameterGroups": []
+      },
+      "timestamp": "Feb 5, 2022, 4:03:52 PM",
+      "component": "oh-home-page",
+      "config": {
+        "displayModelCardsTo": [
+          "role:administrator",
+          "role:user"
+        ],
+        "label": "Home Page"
+      },
+      "slots": {
+        "equipment": [
+          {
+            "component": "oh-equipment-tab",
+            "config": {},
+            "slots": {}
+          }
+        ],
+        "locations": [
+          {
+            "component": "oh-locations-tab",
+            "config": {
+              "excludedCards": []
+            },
+            "slots": {
+              "FruitCultivationLocation": [
+                {
+                  "component": "oh-location-card",
+                  "config": {
+                    "backgroundImage": "https://c4.wallpaperflare.com/wallpaper/156/157/108/food-fruit-plants-leaves-strawberries-hd-wallpaper-preview.jpg"
+                  }
+                }
+              ],
+              "GreenHouse": [
+                {
+                  "component": "oh-location-card",
+                  "config": {
+                    "backgroundImage": "https://wallpapercave.com/wp/wp4631082.jpg",
+                    "subtitle": "Greenhouse IoT System",
+                    "title": "Greenhouse"
+                  }
+                }
+              ],
+              "MainRoom": [
+                {
+                  "component": "oh-location-card",
+                  "config": {
+                    "backgroundImage": "https://images.unsplash.com/uploads/1411901100260f56b39b9/ab70b250?ixlib\u003drb-1.2.1\u0026ixid\u003dMnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JlZW5ob3VzZXxlbnwwfHwwfHw%3D\u0026w\u003d1000\u0026q\u003d80",
+                    "invertText": false,
+                    "subtitle": "Main Room Greenhouse IoT",
+                    "title": "Main Room"
+                  }
+                }
+              ],
+              "PotatoCultivation": [
+                {
+                  "component": "oh-location-card",
+                  "config": {
+                    "backgroundImage": "https://media.istockphoto.com/photos/potatoes-in-the-field-picture-id1220924272?b\u003d1\u0026k\u003d20\u0026m\u003d1220924272\u0026s\u003d170667a\u0026w\u003d0\u0026h\u003dUeKo4erOnX0r1cQDDlbCKb_MLjFy_QWz38YmbcxA5qU\u003d"
+                  }
+                }
+              ],
+              "TomatoCultivationLocation": [
+                {
+                  "component": "oh-location-card",
+                  "config": {
+                    "backgroundImage": "https://media.istockphoto.com/photos/fresh-tomatoes-in-garden-picture-id603180270?k\u003d20\u0026m\u003d603180270\u0026s\u003d170667a\u0026w\u003d0\u0026h\u003dP4kMmolRrwhN-CR_XcModBaaiv2B1zN_DKiusizj0o8\u003d",
+                    "title": "Tomato Cultivation"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "properties": [
+          {
+            "component": "oh-properties-tab",
+            "config": {},
+            "slots": {
+              "Humidity": [
+                {
+                  "component": "oh-property-card",
+                  "config": {
+                    "backgroundImage": "https://www.wallpaperup.com/uploads/wallpapers/2012/08/04/8254/747645f9b9715785387a3d5b64cc07ff.jpg"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "overview": {
+    "class": "org.openhab.core.ui.components.RootUIComponent",
+    "value": {
+      "uid": "overview",
+      "tags": [],
+      "props": {
+        "parameters": [],
+        "parameterGroups": []
+      },
+      "timestamp": "Feb 5, 2022, 4:11:55 PM",
+      "component": "oh-layout-page",
+      "config": {
+        "label": "Overview"
+      },
+      "slots": {
+        "default": [
+          {
+            "component": "oh-block",
+            "config": {},
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-grid-row",
+                  "config": {},
+                  "slots": {
+                    "default": [
+                      {
+                        "component": "oh-grid-col",
+                        "config": {},
+                        "slots": {
+                          "default": [
+                            {
+                              "component": "oh-slider-card",
+                              "config": {
+                                "footer": "Move the slider to edit the Soil Humidity value",
+                                "item": "GroundMoistureMQTTThing_SoilHumChannel",
+                                "releaseOnly": true,
+                                "title": "Soil Humidity Controller",
+                                "unit": "%"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "component": "oh-grid-col",
+                        "config": {},
+                        "slots": {
+                          "default": [
+                            {
+                              "component": "oh-label-card",
+                              "config": {
+                                "background": "radial-gradient(circle, rgba(255,221,196,1) 0%, rgba(233,177,148,1) 100%)",
+                                "item": "GroundMoistureMQTTThing_SoilHumChannel",
+                                "title": "Soil Humidity value",
+                                "trendItem": "GroundMoistureMQTTThing_SoilHumChannel"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "component": "oh-grid-row",
+                  "config": {},
+                  "slots": {
+                    "default": [
+                      {
+                        "component": "oh-grid-col",
+                        "config": {},
+                        "slots": {
+                          "default": [
+                            {
+                              "component": "oh-slider-card",
+                              "config": {
+                                "footer": "Move the slider to edit the Air Humidity value",
+                                "item": "AirHumiditySensor_AirHumidity",
+                                "label": true,
+                                "releaseOnly": false,
+                                "scale": true,
+                                "step": 1.0,
+                                "title": "Air Humidity",
+                                "unit": "%"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "component": "oh-grid-col",
+                        "config": {},
+                        "slots": {
+                          "default": [
+                            {
+                              "component": "oh-label-card",
+                              "config": {
+                                "background": "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(148,187,233,1) 100%)",
+                                "item": "AirHumiditySensor_AirHumidity",
+                                "title": "Air Humidity value",
+                                "trendItem": "AirHumiditySensor_AirHumidity"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "masonry": [
+          {
+            "component": "oh-masonry",
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-label-card",
+                  "config": {
+                    "action": "command",
+                    "actionCommand": "value",
+                    "item": "PotatoCultivationAirHumidityMQTTThing_PotatoCultivationAirHumidityMQTTChannel",
+                    "title": "PotatoCult, Air Humidity"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "page_046ec1ddb6": {
+    "class": "org.openhab.core.ui.components.RootUIComponent",
+    "value": {
+      "uid": "page_046ec1ddb6",
+      "tags": [],
+      "props": {
+        "parameters": [],
+        "parameterGroups": []
+      },
+      "timestamp": "Feb 5, 2022, 3:33:15 PM",
+      "component": "oh-layout-page",
+      "config": {
+        "fixedType": "grid",
+        "label": "Layout base",
+        "layoutType": "fixed",
+        "sidebar": true,
+        "visibleTo": [
+          "role:administrator",
+          "role:user"
+        ]
+      },
+      "slots": {
+        "canvas": [],
+        "default": [],
+        "grid": [
+          {
+            "component": "oh-grid-item",
+            "config": {
+              "h": 3.0,
+              "w": 5.0,
+              "x": 0.0,
+              "y": 0.0
+            },
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-slider-card",
+                  "config": {
+                    "footer": "This represents the soil humidity value of the greenhouse",
+                    "item": "GroundMoistureMQTTThing_SoilHumChannel",
+                    "max": 100.0,
+                    "min": 0.0,
+                    "releaseOnly": true,
+                    "step": 1.0,
+                    "title": "Soil Humidity"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "component": "oh-grid-item",
+            "config": {
+              "h": 2.0,
+              "w": 2.0,
+              "x": 5.0,
+              "y": 0.0
+            },
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-label-card",
+                  "config": {
+                    "item": "GenericMQTTThing_TomatoCultivationAirHumidityChannel"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
