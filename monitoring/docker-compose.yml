@@ -2,6 +2,17 @@ version: "3.8"
 
 services:
 
+  web:
+    build: ../environment
+    command: node index.js
+    volumes:
+      - ./:/environment
+      - /usr/app/node_modules
+    ports:
+      - "8000:8000"
+    networks:
+      - iot
+    
   mosquitto:
     image: eclipse-mosquitto:latest
     container_name: mosquitto_container
