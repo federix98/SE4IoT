@@ -1,0 +1,127 @@
+[
+    {
+        "id": "1a27fd6175795bf9",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8a45ccd334f47670",
+        "type": "mqtt-broker",
+        "name": "Mosquitto",
+        "broker": "mqtt://mosquitto",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "128965d0ba79b811",
+        "type": "http request",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/temperature/get",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "3b43b44c3de24cbb"
+            ]
+        ],
+        "outputLabels": [
+            "Object.data"
+        ]
+    },
+    {
+        "id": "6e0d184bed764203",
+        "type": "inject",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [
+                "128965d0ba79b811"
+            ]
+        ]
+    },
+    {
+        "id": "7938e83bcfeeb1a4",
+        "type": "mqtt out",
+        "z": "1a27fd6175795bf9",
+        "name": "x",
+        "topic": "greenhouse/tomato-cultivation-thermostat/thermostat1/temperature",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 410,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3b43b44c3de24cbb",
+        "type": "function",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "func": "msg.payload = msg.payload[0].data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 320,
+        "wires": [
+            [
+                "7938e83bcfeeb1a4"
+            ]
+        ]
+    }
+]
