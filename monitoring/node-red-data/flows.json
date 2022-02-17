@@ -2,7 +2,23 @@
     {
         "id": "1a27fd6175795bf9",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Tomato-Cultivation-Sensors",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2b76b31a25729239",
+        "type": "tab",
+        "label": "Potato-Cultivation-Sensors",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9d31b571286da958",
+        "type": "tab",
+        "label": "Fruit-Cultivation-Sensors",
         "disabled": false,
         "info": "",
         "env": []
@@ -37,18 +53,18 @@
         "id": "128965d0ba79b811",
         "type": "http request",
         "z": "1a27fd6175795bf9",
-        "name": "",
+        "name": "tomato-cultivation-temp-1",
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000/temperature/get",
+        "url": "http://web:8000/greenhouse/tomato-cultivation/1/temperature",
         "tls": "",
         "persist": false,
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 120,
-        "y": 220,
+        "x": 340,
+        "y": 60,
         "wires": [
             [
                 "3b43b44c3de24cbb"
@@ -73,14 +89,13 @@
             }
         ],
         "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "crontab": "*/1 0-22 * * *",
+        "once": true,
+        "onceDelay": "5",
         "topic": "",
-        "payload": "",
         "payloadType": "date",
-        "x": 230,
-        "y": 120,
+        "x": 70,
+        "y": 360,
         "wires": [
             [
                 "128965d0ba79b811"
@@ -91,7 +106,7 @@
         "id": "7938e83bcfeeb1a4",
         "type": "mqtt out",
         "z": "1a27fd6175795bf9",
-        "name": "x",
+        "name": "",
         "topic": "greenhouse/tomato-cultivation-thermostat/thermostat1/temperature",
         "qos": "0",
         "retain": "false",
@@ -101,8 +116,8 @@
         "correl": "",
         "expiry": "",
         "broker": "8a45ccd334f47670",
-        "x": 410,
-        "y": 300,
+        "x": 930,
+        "y": 60,
         "wires": []
     },
     {
@@ -116,11 +131,601 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
-        "y": 320,
+        "x": 580,
+        "y": 60,
         "wires": [
             [
                 "7938e83bcfeeb1a4"
+            ]
+        ]
+    },
+    {
+        "id": "42238b2aea1119da",
+        "type": "http request",
+        "z": "1a27fd6175795bf9",
+        "name": "tomato-cultivation-temp-2",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 340,
+        "y": 120,
+        "wires": [
+            [
+                "13a1a9d65a32e222"
+            ]
+        ]
+    },
+    {
+        "id": "13a1a9d65a32e222",
+        "type": "function",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 120,
+        "wires": [
+            [
+                "8a163ae0ca7645b1"
+            ]
+        ]
+    },
+    {
+        "id": "8a163ae0ca7645b1",
+        "type": "mqtt out",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-thermostat/thermostat2/temperature",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 930,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f53f435d8013d1f5",
+        "type": "http request",
+        "z": "1a27fd6175795bf9",
+        "name": "tomato-cultivation-light",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "2b61b318d8ea4c33"
+            ]
+        ]
+    },
+    {
+        "id": "805d28640b086e75",
+        "type": "http request",
+        "z": "1a27fd6175795bf9",
+        "name": "tomato-cultivation-sprinkler1",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 340,
+        "y": 300,
+        "wires": [
+            [
+                "e6989d133621413c"
+            ]
+        ]
+    },
+    {
+        "id": "94ef238aed439740",
+        "type": "http request",
+        "z": "1a27fd6175795bf9",
+        "name": "tomato-cultivation-sprinkler2",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 340,
+        "y": 360,
+        "wires": [
+            [
+                "3eb04cb48d09fa1c"
+            ]
+        ]
+    },
+    {
+        "id": "5dfebd5ec2cd0ec9",
+        "type": "http request",
+        "z": "1a27fd6175795bf9",
+        "name": "tomato-cultivation-sprinkler3",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 340,
+        "y": 420,
+        "wires": [
+            [
+                "cf7f3e74633a6f1c"
+            ]
+        ]
+    },
+    {
+        "id": "b6382e492888d5da",
+        "type": "http request",
+        "z": "1a27fd6175795bf9",
+        "name": "tomato-cultivation-air-hygrometer",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 360,
+        "y": 480,
+        "wires": [
+            [
+                "83dac6ea5315ed15"
+            ]
+        ]
+    },
+    {
+        "id": "58ae290cce5f67b9",
+        "type": "http request",
+        "z": "1a27fd6175795bf9",
+        "name": "tomato-cultivation-co2-meter",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 350,
+        "y": 540,
+        "wires": [
+            [
+                "a7c3edb9e0c035b6"
+            ]
+        ]
+    },
+    {
+        "id": "2ff17bf195f060ae",
+        "type": "http request",
+        "z": "1a27fd6175795bf9",
+        "name": "tomato-cultivation-fan",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 320,
+        "y": 600,
+        "wires": [
+            [
+                "2c50652d1db6ebab"
+            ]
+        ]
+    },
+    {
+        "id": "8ff63e6d82997063",
+        "type": "http request",
+        "z": "1a27fd6175795bf9",
+        "name": "tomato-cultivation-ph-meter",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 340,
+        "y": 660,
+        "wires": [
+            [
+                "8cfb853693fb0265"
+            ]
+        ]
+    },
+    {
+        "id": "2b61b318d8ea4c33",
+        "type": "function",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 180,
+        "wires": [
+            [
+                "3ab8d67705b8e936"
+            ]
+        ]
+    },
+    {
+        "id": "21a4b3758d7791f4",
+        "type": "function",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 240,
+        "wires": [
+            [
+                "aa807db98b3abf34"
+            ]
+        ]
+    },
+    {
+        "id": "e6989d133621413c",
+        "type": "function",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 300,
+        "wires": [
+            [
+                "24dc82fb9259e7f9"
+            ]
+        ]
+    },
+    {
+        "id": "3eb04cb48d09fa1c",
+        "type": "function",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 360,
+        "wires": [
+            [
+                "939cf6fafe0338d5"
+            ]
+        ]
+    },
+    {
+        "id": "cf7f3e74633a6f1c",
+        "type": "function",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 420,
+        "wires": [
+            [
+                "efda64ca54ea7a5b"
+            ]
+        ]
+    },
+    {
+        "id": "83dac6ea5315ed15",
+        "type": "function",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 480,
+        "wires": [
+            [
+                "3423a4332707a060"
+            ]
+        ]
+    },
+    {
+        "id": "a7c3edb9e0c035b6",
+        "type": "function",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 540,
+        "wires": [
+            [
+                "4be0e97eb117d728"
+            ]
+        ]
+    },
+    {
+        "id": "2c50652d1db6ebab",
+        "type": "function",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 600,
+        "wires": [
+            [
+                "4060591cbf9ed8ec"
+            ]
+        ]
+    },
+    {
+        "id": "8cfb853693fb0265",
+        "type": "function",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 660,
+        "wires": [
+            [
+                "a8de7095a1eb53ec"
+            ]
+        ]
+    },
+    {
+        "id": "3ab8d67705b8e936",
+        "type": "mqtt out",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-light/light/luminosity",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 870,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "aa807db98b3abf34",
+        "type": "mqtt out",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-soil-hygrometer/hygrometer/humidity",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 930,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "24dc82fb9259e7f9",
+        "type": "mqtt out",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler1/power",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 890,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "939cf6fafe0338d5",
+        "type": "mqtt out",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler2/power",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 890,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "efda64ca54ea7a5b",
+        "type": "mqtt out",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler3/power",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 890,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "3423a4332707a060",
+        "type": "mqtt out",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-air-hygrometer/hygrometer/humidity",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 920,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "4be0e97eb117d728",
+        "type": "mqtt out",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-co2-meter/co2-meter/carbone-dioxite",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 930,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "4060591cbf9ed8ec",
+        "type": "mqtt out",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-fan/fan/power",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 860,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "a8de7095a1eb53ec",
+        "type": "mqtt out",
+        "z": "1a27fd6175795bf9",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-ph-meter/ph-meter/ph",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 880,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a91ef02876692a75",
+        "type": "http request",
+        "z": "1a27fd6175795bf9",
+        "name": "tomato-cultivation-soil-hygrometer",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 360,
+        "y": 240,
+        "wires": [
+            [
+                "21a4b3758d7791f4"
             ]
         ]
     }
