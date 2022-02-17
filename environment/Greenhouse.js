@@ -12,8 +12,9 @@ module.exports = class Greenhouse {
     }
 
     attachRoutes() {
-        this.router.get('/greenhouse/' + this.name + ':position/temperature', this.temperature.get);
-        this.router.post('/greenhouse/' + this.name + '/temperature/setHeating', this.temperature.setHeating);
+        this.router.get('/greenhouse/' + this.settings.name + ':position/temperature', this.temperature.get);
+        this.router.post('/greenhouse/' + this.settings.name + '/temperature/setHeating', this.temperature.setHeating);
     }
+    
 
 }
