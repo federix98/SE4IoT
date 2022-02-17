@@ -7,7 +7,7 @@
       "configuration": {
         "properties": {
           "certificatepin": true,
-          "clientid": "370c8043-b8b1-46e9-abc0-e40d11f72f0b",
+          "clientid": "1b509db7-01a6-4d2d-8151-8805a4b94c05",
           "enableDiscovery": true,
           "host": "mosquitto",
           "keepAlive": 60,
@@ -1027,7 +1027,6 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/tomatocultivation/light/set",
               "stateTopic": "home/greenhouse/tomatocultivation/light"
             }
           },
@@ -1151,6 +1150,36 @@
           "configuration": {
             "properties": {
               "commandTopic": "home/greenhouse/tomatocultivation/soilhumidity/set"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Dimmer",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "a1ee1690fe",
+              "TC_Light_Set"
+            ],
+            "uid": "mqtt:topic:a1ee1690fe:TC_Light_Set"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "dimmer"
+            ],
+            "uid": "mqtt:dimmer"
+          },
+          "label": "TC_Light_Set",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "home/greenhouse/tomatocultivation/light/set"
             }
           },
           "properties": {},

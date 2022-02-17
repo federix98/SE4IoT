@@ -7,7 +7,7 @@
       "configuration": {
         "properties": {
           "certificatepin": true,
-          "clientid": "04f82c36-3daf-4b70-99a4-07aafdbfd8cd",
+          "clientid": "c12c305b-57a2-461b-bf60-3cbf02458970",
           "enableDiscovery": true,
           "host": "mosquitto",
           "keepAlive": 60,
