@@ -57,7 +57,7 @@
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000/greenhouse/tomato-cultivation/1/temperature",
+        "url": "http://web:8000/greenhouse/tomato-cultivation/temperature/1",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -94,11 +94,12 @@
         "onceDelay": "5",
         "topic": "",
         "payloadType": "date",
-        "x": 70,
+        "x": 110,
         "y": 360,
         "wires": [
             [
-                "128965d0ba79b811"
+                "128965d0ba79b811",
+                "42238b2aea1119da"
             ]
         ]
     },
@@ -147,7 +148,7 @@
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000/",
+        "url": "http://web:8000/greenhouse/tomato-cultivation/temperature/2",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -727,6 +728,1187 @@
             [
                 "21a4b3758d7791f4"
             ]
+        ]
+    },
+    {
+        "id": "107ed8186a51c686",
+        "type": "http request",
+        "z": "2b76b31a25729239",
+        "name": "potato-cultivation-temp",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/greenhouse/potato-cultivation/temperature/1",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "5bd6f51c0c072d51"
+            ]
+        ],
+        "outputLabels": [
+            "Object.data"
+        ]
+    },
+    {
+        "id": "5c319e8f78aad588",
+        "type": "inject",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "*/1 0-22 * * *",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 340,
+        "wires": [
+            [
+                "107ed8186a51c686"
+            ]
+        ]
+    },
+    {
+        "id": "5bd6f51c0c072d51",
+        "type": "function",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 80,
+        "wires": [
+            [
+                "9b72146de41a1eef"
+            ]
+        ]
+    },
+    {
+        "id": "9b72146de41a1eef",
+        "type": "mqtt out",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-thermostat/thermostat/temperature",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 920,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "4449a27c0c4db6ae",
+        "type": "mqtt out",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-light/light/luminosity",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 870,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f7d81bae33907294",
+        "type": "function",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 140,
+        "wires": [
+            [
+                "4449a27c0c4db6ae"
+            ]
+        ]
+    },
+    {
+        "id": "81031ca617e70302",
+        "type": "http request",
+        "z": "2b76b31a25729239",
+        "name": "potato-cultivation-light",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "f7d81bae33907294"
+            ]
+        ]
+    },
+    {
+        "id": "0998056b39c024d4",
+        "type": "mqtt out",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-soil-hygrometer/hygrometer/humidity",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 930,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "b4ccaaae9e911576",
+        "type": "function",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 200,
+        "wires": [
+            [
+                "0998056b39c024d4"
+            ]
+        ]
+    },
+    {
+        "id": "5b0d7fa17ff8a6b2",
+        "type": "http request",
+        "z": "2b76b31a25729239",
+        "name": "potato-cultivation-soil-hygrometer",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 340,
+        "y": 200,
+        "wires": [
+            [
+                "b4ccaaae9e911576"
+            ]
+        ]
+    },
+    {
+        "id": "897314a04f013760",
+        "type": "http request",
+        "z": "2b76b31a25729239",
+        "name": "potato-cultivation-sprinkler2",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "dc0a077734e9ac04"
+            ]
+        ]
+    },
+    {
+        "id": "dc0a077734e9ac04",
+        "type": "function",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 320,
+        "wires": [
+            [
+                "949f8aa1d43f1bcf"
+            ]
+        ]
+    },
+    {
+        "id": "949f8aa1d43f1bcf",
+        "type": "mqtt out",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-sprinkler/sprinkler2/power",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 890,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "5c25d27659aeb414",
+        "type": "http request",
+        "z": "2b76b31a25729239",
+        "name": "potato-cultivation-sprinkler1",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "b951ecde554a87ba"
+            ]
+        ]
+    },
+    {
+        "id": "2a2ed2e3e162a995",
+        "type": "mqtt out",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-sprinkler/sprinkler1/power",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 890,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b951ecde554a87ba",
+        "type": "function",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 260,
+        "wires": [
+            [
+                "2a2ed2e3e162a995"
+            ]
+        ]
+    },
+    {
+        "id": "3e2e92a16d843e8c",
+        "type": "http request",
+        "z": "2b76b31a25729239",
+        "name": "potato-cultivation-co2-meter",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 320,
+        "y": 440,
+        "wires": [
+            [
+                "1adcfcd5864649c8"
+            ]
+        ]
+    },
+    {
+        "id": "ab626cb69dd90d2c",
+        "type": "http request",
+        "z": "2b76b31a25729239",
+        "name": "potato-cultivation-air-hygrometer",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [
+                "4504afefdc564c10"
+            ]
+        ]
+    },
+    {
+        "id": "4504afefdc564c10",
+        "type": "function",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 380,
+        "wires": [
+            [
+                "8464bf959b17a354"
+            ]
+        ]
+    },
+    {
+        "id": "8464bf959b17a354",
+        "type": "mqtt out",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-air-hygrometer/hygrometer/humidity",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 920,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "1adcfcd5864649c8",
+        "type": "function",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 440,
+        "wires": [
+            [
+                "053e952776753a59"
+            ]
+        ]
+    },
+    {
+        "id": "053e952776753a59",
+        "type": "mqtt out",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-co2-meter/co2-meter/carbone-dioxite",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 930,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "0dba1731cd4f165f",
+        "type": "mqtt out",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-fan/fan1/power",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 860,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "d10b953b456bd655",
+        "type": "function",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 500,
+        "wires": [
+            [
+                "0dba1731cd4f165f"
+            ]
+        ]
+    },
+    {
+        "id": "dcd9753e5f99270e",
+        "type": "http request",
+        "z": "2b76b31a25729239",
+        "name": "potato-cultivation-fan1",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 300,
+        "y": 500,
+        "wires": [
+            [
+                "d10b953b456bd655"
+            ]
+        ]
+    },
+    {
+        "id": "ca3a066758375595",
+        "type": "http request",
+        "z": "2b76b31a25729239",
+        "name": "potato-cultivation-ph-meter",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 320,
+        "y": 620,
+        "wires": [
+            [
+                "d48daaef5f6fa123"
+            ]
+        ]
+    },
+    {
+        "id": "d48daaef5f6fa123",
+        "type": "function",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 620,
+        "wires": [
+            [
+                "1417523049b1725f"
+            ]
+        ]
+    },
+    {
+        "id": "1417523049b1725f",
+        "type": "mqtt out",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-ph-meter/ph-meter/ph",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 880,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "a928da20e5f05555",
+        "type": "mqtt out",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-fan/fan2/power",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 860,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "a16d5ced7a768841",
+        "type": "function",
+        "z": "2b76b31a25729239",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 560,
+        "wires": [
+            [
+                "a928da20e5f05555"
+            ]
+        ]
+    },
+    {
+        "id": "eb066e3784465da1",
+        "type": "http request",
+        "z": "2b76b31a25729239",
+        "name": "potato-cultivation-fan2",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 300,
+        "y": 560,
+        "wires": [
+            [
+                "a16d5ced7a768841"
+            ]
+        ]
+    },
+    {
+        "id": "f0108f6f32043bc9",
+        "type": "http request",
+        "z": "9d31b571286da958",
+        "name": "fruit-cultivation-temp",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "0187f12a9e429708"
+            ]
+        ],
+        "outputLabels": [
+            "Object.data"
+        ]
+    },
+    {
+        "id": "1307a2fa33ac26a5",
+        "type": "http request",
+        "z": "9d31b571286da958",
+        "name": "fruit-cultivation-light",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "0587a77b9cbfb519"
+            ]
+        ]
+    },
+    {
+        "id": "bd699f930777680f",
+        "type": "http request",
+        "z": "9d31b571286da958",
+        "name": "fruit-cultivation-soil-hygrometer",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 330,
+        "y": 200,
+        "wires": [
+            [
+                "392d88c8387e2e9d"
+            ]
+        ]
+    },
+    {
+        "id": "da63eca9faa9a90e",
+        "type": "http request",
+        "z": "9d31b571286da958",
+        "name": "fruit-cultivation-sprinkler1",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "75b92c8c1c3f22f6"
+            ]
+        ]
+    },
+    {
+        "id": "845086b0a1eaf1ab",
+        "type": "http request",
+        "z": "9d31b571286da958",
+        "name": "fruit-cultivation-sprinkler2",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 310,
+        "y": 320,
+        "wires": [
+            [
+                "3577736aa1235df8"
+            ]
+        ]
+    },
+    {
+        "id": "8e5b130f8684811e",
+        "type": "http request",
+        "z": "9d31b571286da958",
+        "name": "fruit-cultivation-air-hygrometer",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 330,
+        "y": 380,
+        "wires": [
+            [
+                "6eeeefc5d0e7a53f"
+            ]
+        ]
+    },
+    {
+        "id": "eeaeb266d374af68",
+        "type": "http request",
+        "z": "9d31b571286da958",
+        "name": "fruit-cultivation-co2-meter",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 320,
+        "y": 440,
+        "wires": [
+            [
+                "d22381e0e1b69dd2"
+            ]
+        ]
+    },
+    {
+        "id": "50423b864c901c19",
+        "type": "http request",
+        "z": "9d31b571286da958",
+        "name": "fruit-cultivation-fan",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "d6618ef51f6c88cf"
+            ]
+        ]
+    },
+    {
+        "id": "e620d7e547eac0b3",
+        "type": "http request",
+        "z": "9d31b571286da958",
+        "name": "fruit-cultivation-ph-meter",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 310,
+        "y": 560,
+        "wires": [
+            [
+                "45ffb1e5e24df496"
+            ]
+        ]
+    },
+    {
+        "id": "45ffb1e5e24df496",
+        "type": "function",
+        "z": "9d31b571286da958",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 560,
+        "wires": [
+            [
+                "4e4f945da15d95f4"
+            ]
+        ]
+    },
+    {
+        "id": "d6618ef51f6c88cf",
+        "type": "function",
+        "z": "9d31b571286da958",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 500,
+        "wires": [
+            [
+                "108ff7c0bfe4f4d5"
+            ]
+        ]
+    },
+    {
+        "id": "d22381e0e1b69dd2",
+        "type": "function",
+        "z": "9d31b571286da958",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 440,
+        "wires": [
+            [
+                "829d9be4c1dd1d08"
+            ]
+        ]
+    },
+    {
+        "id": "6eeeefc5d0e7a53f",
+        "type": "function",
+        "z": "9d31b571286da958",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 380,
+        "wires": [
+            [
+                "4b7da2ee66c2c58a"
+            ]
+        ]
+    },
+    {
+        "id": "3577736aa1235df8",
+        "type": "function",
+        "z": "9d31b571286da958",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 320,
+        "wires": [
+            [
+                "24f36d70674083ac"
+            ]
+        ]
+    },
+    {
+        "id": "75b92c8c1c3f22f6",
+        "type": "function",
+        "z": "9d31b571286da958",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 260,
+        "wires": [
+            [
+                "4eca27db6ab8ed8c"
+            ]
+        ]
+    },
+    {
+        "id": "392d88c8387e2e9d",
+        "type": "function",
+        "z": "9d31b571286da958",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 200,
+        "wires": [
+            [
+                "38e79f833cb4f460"
+            ]
+        ]
+    },
+    {
+        "id": "0587a77b9cbfb519",
+        "type": "function",
+        "z": "9d31b571286da958",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 140,
+        "wires": [
+            [
+                "063d58f391e003bf"
+            ]
+        ]
+    },
+    {
+        "id": "0187f12a9e429708",
+        "type": "function",
+        "z": "9d31b571286da958",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 80,
+        "wires": [
+            [
+                "0d10e1907b92dc2b"
+            ]
+        ]
+    },
+    {
+        "id": "0d10e1907b92dc2b",
+        "type": "mqtt out",
+        "z": "9d31b571286da958",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-thermostat/thermostat/temperature",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 910,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "063d58f391e003bf",
+        "type": "mqtt out",
+        "z": "9d31b571286da958",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-light/light/luminosity",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 860,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "38e79f833cb4f460",
+        "type": "mqtt out",
+        "z": "9d31b571286da958",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-soil-hygrometer/hygrometer/humidity",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 920,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4eca27db6ab8ed8c",
+        "type": "mqtt out",
+        "z": "9d31b571286da958",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-sprinkler/sprinkler1/power",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 880,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "24f36d70674083ac",
+        "type": "mqtt out",
+        "z": "9d31b571286da958",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-sprinkler/sprinkler2/power",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 880,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4b7da2ee66c2c58a",
+        "type": "mqtt out",
+        "z": "9d31b571286da958",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-air-hygrometer/hygrometer/humidity",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 910,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "829d9be4c1dd1d08",
+        "type": "mqtt out",
+        "z": "9d31b571286da958",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-co2-meter/co2-meter/carbone-dioxite",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 920,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "108ff7c0bfe4f4d5",
+        "type": "mqtt out",
+        "z": "9d31b571286da958",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-fan/fan/power",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 850,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "4e4f945da15d95f4",
+        "type": "mqtt out",
+        "z": "9d31b571286da958",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-ph-meter/ph-meter/ph",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 870,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "e5bedf2b8c9cd422",
+        "type": "inject",
+        "z": "9d31b571286da958",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "*/1 0-22 * * *",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 340,
+        "wires": [
+            []
         ]
     }
 ]

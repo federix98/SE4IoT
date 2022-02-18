@@ -57,7 +57,7 @@
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000/greenhouse/tomato-cultivation/1/temperature",
+        "url": "http://web:8000/greenhouse/tomato-cultivation/temperature/1",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -94,11 +94,12 @@
         "onceDelay": "5",
         "topic": "",
         "payloadType": "date",
-        "x": 70,
+        "x": 110,
         "y": 360,
         "wires": [
             [
-                "128965d0ba79b811"
+                "128965d0ba79b811",
+                "42238b2aea1119da"
             ]
         ]
     },
@@ -147,7 +148,7 @@
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000/",
+        "url": "http://web:8000/greenhouse/tomato-cultivation/temperature/2",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -737,7 +738,7 @@
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000",
+        "url": "http://web:8000/greenhouse/potato-cultivation/temperature/1",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -777,7 +778,9 @@
         "x": 70,
         "y": 340,
         "wires": [
-            []
+            [
+                "107ed8186a51c686"
+            ]
         ]
     },
     {
@@ -1356,7 +1359,7 @@
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000",
+        "url": "http://web:8000/greenhouse/fruit-cultivation/temperature/1",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -1905,7 +1908,9 @@
         "x": 70,
         "y": 340,
         "wires": [
-            []
+            [
+                "f0108f6f32043bc9"
+            ]
         ]
     }
 ]

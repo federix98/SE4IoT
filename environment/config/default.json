@@ -23,6 +23,18 @@
                 "upperDeviationDelta": 1.05,
                 "frequency": 5000
             }
+        },
+        {
+            "name": "fruit-cultivation",
+            "temperature": {
+                "positions": 1,
+                "min_temp": 20,
+                "max_temp": 35,
+                "delta": 1.2,
+                "lowerDeviationDelta": 0.95,
+                "upperDeviationDelta": 1.05,
+                "frequency": 5000
+            }
         }
     ]
 
