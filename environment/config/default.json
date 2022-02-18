@@ -8,7 +8,8 @@
                 "max_temp": 35,
                 "delta": 1.2,
                 "lowerDeviationDelta": 0.95,
-                "upperDeviationDelta": 1.05
+                "upperDeviationDelta": 1.05,
+                "frequency": 5000
             }
         },
         {
@@ -19,7 +20,8 @@
                 "max_temp": 35,
                 "delta": 1.2,
                 "lowerDeviationDelta": 0.95,
-                "upperDeviationDelta": 1.05
+                "upperDeviationDelta": 1.05,
+                "frequency": 5000
             }
         }
     ]

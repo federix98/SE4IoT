@@ -17,8 +17,6 @@ greenhousesSettings.forEach(greenhouseSettings => {
 });
 
 
-
 server.listen(8000, () => {
     console.log("Server listening on port 8000");
-    console.log(server._router.stack);
 })
