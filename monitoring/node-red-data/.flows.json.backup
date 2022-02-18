@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "5765d2042467176e",
+        "type": "tab",
+        "label": "Tomato-Cultivation-Actuators",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "2b76b31a25729239",
         "type": "tab",
         "label": "Potato-Cultivation-Sensors",
@@ -731,6 +739,249 @@
         ]
     },
     {
+        "id": "cf21937e15f701cf",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "[HTTP POST SETTING] SetHeating",
+        "func": "console.log(\"Read on topic: \" + msg.payload)\n\nmsg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/temperature/setHeating\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nmsg.payload = {\n    \"heatingOn\": msg.payload\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 180,
+        "wires": [
+            [
+                "ac8cbb3e6c7e5faf",
+                "c30fad5ed457275b"
+            ]
+        ]
+    },
+    {
+        "id": "ac8cbb3e6c7e5faf",
+        "type": "http request",
+        "z": "5765d2042467176e",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/greenhouse/tomato-cultivation/temperature/setHeating",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1530,
+        "y": 300,
+        "wires": [
+            [
+                "c1e50d9228403761"
+            ]
+        ]
+    },
+    {
+        "id": "c7497760547ae6d2",
+        "type": "debug",
+        "z": "5765d2042467176e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "\"Message sent\"",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2000,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c1e50d9228403761",
+        "type": "switch",
+        "z": "5765d2042467176e",
+        "name": "CheckResponseStatus",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "204",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "204",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1780,
+        "y": 300,
+        "wires": [
+            [
+                "c7497760547ae6d2"
+            ],
+            [
+                "ae95f3a966d3eac1"
+            ]
+        ]
+    },
+    {
+        "id": "ae95f3a966d3eac1",
+        "type": "debug",
+        "z": "5765d2042467176e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "\"Error while sending message\"",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2000,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "b6fca46eb614f77a",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "[HTTP POST SETTING] SetLight",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/light/__to_fill\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nmsg.payload = {\n    \"heatingOn\": 40\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 240,
+        "wires": [
+            [
+                "ac8cbb3e6c7e5faf"
+            ]
+        ]
+    },
+    {
+        "id": "80dd0c0fd04315db",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "[HTTP POST SETTING] Sprinkler",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/temperature/setHeating\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nmsg.payload = {\n    \"heatingOn\": 40\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 360,
+        "wires": [
+            [
+                "ac8cbb3e6c7e5faf"
+            ]
+        ]
+    },
+    {
+        "id": "bccd87d7833dfd86",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "[HTTP POST SETTING] Fan",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/temperature/setHeating\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nmsg.payload = {\n    \"heatingOn\": 40\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 420,
+        "wires": [
+            [
+                "ac8cbb3e6c7e5faf"
+            ]
+        ]
+    },
+    {
+        "id": "2fe462ebc3a1e7fd",
+        "type": "mqtt in",
+        "z": "5765d2042467176e",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-thermostat/thermostat1/temperature/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 650,
+        "y": 140,
+        "wires": [
+            [
+                "cf21937e15f701cf"
+            ]
+        ]
+    },
+    {
+        "id": "183f1367ece17984",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "[HTTP POST SETTING] SoilHygrometer",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/temperature/setHeating\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nmsg.payload = {\n    \"heatingOn\": 40\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 300,
+        "wires": [
+            [
+                "ac8cbb3e6c7e5faf"
+            ]
+        ]
+    },
+    {
+        "id": "7b864f8f111e8288",
+        "type": "mqtt in",
+        "z": "5765d2042467176e",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-thermostat/thermostat2/temperature/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 650,
+        "y": 200,
+        "wires": [
+            [
+                "cf21937e15f701cf"
+            ]
+        ]
+    },
+    {
+        "id": "c30fad5ed457275b",
+        "type": "debug",
+        "z": "5765d2042467176e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1530,
+        "y": 140,
+        "wires": []
+    },
+    {
         "id": "107ed8186a51c686",
         "type": "http request",
         "z": "2b76b31a25729239",
@@ -1359,7 +1610,7 @@
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000",
+        "url": "http://web:8000/greenhouse/fruit-cultivation/temperature/1",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -1908,7 +2159,9 @@
         "x": 70,
         "y": 340,
         "wires": [
-            []
+            [
+                "f0108f6f32043bc9"
+            ]
         ]
     }
 ]
