@@ -18,25 +18,6 @@
       "itemName": "AirHumiditySensor_AirHumidity"
     }
   },
-  "FruitCultivationMQTTThing_FCAirHumiditySet -\u003e mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_AirHumidity_Set": {
-    "class": "org.openhab.core.thing.link.ItemChannelLink",
-    "value": {
-      "channelUID": {
-        "segments": [
-          "mqtt",
-          "topic",
-          "5c17c82b8e",
-          "ecb0b1ff9e",
-          "FC_AirHumidity_Set"
-        ],
-        "uid": "mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_AirHumidity_Set"
-      },
-      "configuration": {
-        "properties": {}
-      },
-      "itemName": "FruitCultivationMQTTThing_FCAirHumiditySet"
-    }
-  },
   "FruitCultivationMQTTThing_FCSoilph -\u003e mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_Soilph": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
@@ -54,6 +35,44 @@
         "properties": {}
       },
       "itemName": "FruitCultivationMQTTThing_FCSoilph"
+    }
+  },
+  "FruitCultivationMQTTThing_FCSprinkler1 -\u003e mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_Sprinkler1": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "5c17c82b8e",
+          "ecb0b1ff9e",
+          "FC_Sprinkler1"
+        ],
+        "uid": "mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_Sprinkler1"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "FruitCultivationMQTTThing_FCSprinkler1"
+    }
+  },
+  "FruitCultivationMQTTThing_FCSprinkler2 -\u003e mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_Sprinkler2": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "5c17c82b8e",
+          "ecb0b1ff9e",
+          "FC_Sprinkler2"
+        ],
+        "uid": "mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_Sprinkler2"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "FruitCultivationMQTTThing_FCSprinkler2"
     }
   },
   "FruitCultivation_AirHumidity -\u003e mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_AirHumidity": {
@@ -149,25 +168,6 @@
         "properties": {}
       },
       "itemName": "FruitCultivation_FCLightSet"
-    }
-  },
-  "FruitCultivation_FCSoilHumiditySet -\u003e mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_SoilHumidity_Set": {
-    "class": "org.openhab.core.thing.link.ItemChannelLink",
-    "value": {
-      "channelUID": {
-        "segments": [
-          "mqtt",
-          "topic",
-          "5c17c82b8e",
-          "ecb0b1ff9e",
-          "FC_SoilHumidity_Set"
-        ],
-        "uid": "mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_SoilHumidity_Set"
-      },
-      "configuration": {
-        "properties": {}
-      },
-      "itemName": "FruitCultivation_FCSoilHumiditySet"
     }
   },
   "FruitCultivation_Light -\u003e mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_Light": {
@@ -359,6 +359,44 @@
       "itemName": "PotatoCultivationMQTTThing_PCCo2Fan"
     }
   },
+  "PotatoCultivationMQTTThing_PCSprinkler1 -\u003e mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Sprinkler1": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "5c17c82b8e",
+          "82bc2bf28a",
+          "PC_Sprinkler1"
+        ],
+        "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Sprinkler1"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PotatoCultivationMQTTThing_PCSprinkler1"
+    }
+  },
+  "PotatoCultivationMQTTThing_PCSprinkler2 -\u003e mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Sprinkler2": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "5c17c82b8e",
+          "82bc2bf28a",
+          "PC_Sprinkler2"
+        ],
+        "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Sprinkler2"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PotatoCultivationMQTTThing_PCSprinkler2"
+    }
+  },
   "PotatoCultivation_AirHumidity -\u003e mqtt:topic:5c17c82b8e:82bc2bf28a:PC_AirHumidity": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
@@ -376,25 +414,6 @@
         "properties": {}
       },
       "itemName": "PotatoCultivation_AirHumidity"
-    }
-  },
-  "PotatoCultivation_AirHumiditySet -\u003e mqtt:topic:5c17c82b8e:82bc2bf28a:PC_AirHumidity_Set": {
-    "class": "org.openhab.core.thing.link.ItemChannelLink",
-    "value": {
-      "channelUID": {
-        "segments": [
-          "mqtt",
-          "topic",
-          "5c17c82b8e",
-          "82bc2bf28a",
-          "PC_AirHumidity_Set"
-        ],
-        "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_AirHumidity_Set"
-      },
-      "configuration": {
-        "properties": {}
-      },
-      "itemName": "PotatoCultivation_AirHumiditySet"
     }
   },
   "PotatoCultivation_Light -\u003e mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Light": {
@@ -416,6 +435,25 @@
       "itemName": "PotatoCultivation_Light"
     }
   },
+  "PotatoCultivation_PCLightSet -\u003e mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Light_Set": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "5c17c82b8e",
+          "82bc2bf28a",
+          "PC_Light_Set"
+        ],
+        "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Light_Set"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PotatoCultivation_PCLightSet"
+    }
+  },
   "PotatoCultivation_SoilHumidity -\u003e mqtt:topic:5c17c82b8e:82bc2bf28a:PC_SoilHumidity": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
@@ -433,25 +471,6 @@
         "properties": {}
       },
       "itemName": "PotatoCultivation_SoilHumidity"
-    }
-  },
-  "PotatoCultivation_SoilHumiditySet -\u003e mqtt:topic:5c17c82b8e:82bc2bf28a:PC_SoilHumidity_Set": {
-    "class": "org.openhab.core.thing.link.ItemChannelLink",
-    "value": {
-      "channelUID": {
-        "segments": [
-          "mqtt",
-          "topic",
-          "5c17c82b8e",
-          "82bc2bf28a",
-          "PC_SoilHumidity_Set"
-        ],
-        "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_SoilHumidity_Set"
-      },
-      "configuration": {
-        "properties": {}
-      },
-      "itemName": "PotatoCultivation_SoilHumiditySet"
     }
   },
   "PotatoCultivation_SoilPH -\u003e mqtt:topic:5c17c82b8e:82bc2bf28a:PC_SoilPH": {
@@ -601,7 +620,7 @@
       "itemName": "TomatoCultivationAirHumidityMQTTThing_TCTempearature"
     }
   },
-  "TomatoCultivationMQTTThing_TCSoilHumiditySet -\u003e mqtt:topic:a1ee1690fe:TC_SoilHumidity_Set": {
+  "TomatoCultivationMQTTThing_TCSprinkler1 -\u003e mqtt:topic:a1ee1690fe:TC_Sprinkler1": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
       "channelUID": {
@@ -609,17 +628,17 @@
           "mqtt",
           "topic",
           "a1ee1690fe",
-          "TC_SoilHumidity_Set"
+          "TC_Sprinkler1"
         ],
-        "uid": "mqtt:topic:a1ee1690fe:TC_SoilHumidity_Set"
+        "uid": "mqtt:topic:a1ee1690fe:TC_Sprinkler1"
       },
       "configuration": {
         "properties": {}
       },
-      "itemName": "TomatoCultivationMQTTThing_TCSoilHumiditySet"
+      "itemName": "TomatoCultivationMQTTThing_TCSprinkler1"
     }
   },
-  "TomatoCultivation_AirhumiditySet -\u003e mqtt:topic:a1ee1690fe:TC_Airhumidity_Set": {
+  "TomatoCultivationMQTTThing_TCSprinkler2 -\u003e mqtt:topic:a1ee1690fe:TC_Sprinkler2": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
       "channelUID": {
@@ -627,14 +646,50 @@
           "mqtt",
           "topic",
           "a1ee1690fe",
-          "TC_Airhumidity_Set"
+          "TC_Sprinkler2"
         ],
-        "uid": "mqtt:topic:a1ee1690fe:TC_Airhumidity_Set"
+        "uid": "mqtt:topic:a1ee1690fe:TC_Sprinkler2"
       },
       "configuration": {
         "properties": {}
       },
-      "itemName": "TomatoCultivation_AirhumiditySet"
+      "itemName": "TomatoCultivationMQTTThing_TCSprinkler2"
+    }
+  },
+  "TomatoCultivationMQTTThing_TCSprinkler3 -\u003e mqtt:topic:a1ee1690fe:TC_Sprinkler3": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "a1ee1690fe",
+          "TC_Sprinkler3"
+        ],
+        "uid": "mqtt:topic:a1ee1690fe:TC_Sprinkler3"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TomatoCultivationMQTTThing_TCSprinkler3"
+    }
+  },
+  "TomatoCultivationMQTTThing_TCTemperature2 -\u003e mqtt:topic:a1ee1690fe:TC_Temperature2": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "a1ee1690fe",
+          "TC_Temperature2"
+        ],
+        "uid": "mqtt:topic:a1ee1690fe:TC_Temperature2"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TomatoCultivationMQTTThing_TCTemperature2"
     }
   },
   "TomatoCultivation_CO2Fan -\u003e mqtt:topic:a1ee1690fe:TC_CO2_Fan": {
@@ -671,6 +726,24 @@
         "properties": {}
       },
       "itemName": "TomatoCultivation_Light"
+    }
+  },
+  "TomatoCultivation_TCLightSet -\u003e mqtt:topic:a1ee1690fe:TC_Light_Set": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "a1ee1690fe",
+          "TC_Light_Set"
+        ],
+        "uid": "mqtt:topic:a1ee1690fe:TC_Light_Set"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TomatoCultivation_TCLightSet"
     }
   },
   "TomatoCultivation_TemperatureSet -\u003e mqtt:topic:a1ee1690fe:TC_Temperature_Set": {

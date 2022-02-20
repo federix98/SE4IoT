@@ -13,21 +13,6 @@
       "category": "greenhouse"
     }
   },
-  "FruitCultivationMQTTThing_FCAirHumiditySet": {
-    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
-    "value": {
-      "groupNames": [
-        "FruitCultivationLocation"
-      ],
-      "itemType": "Dimmer",
-      "tags": [
-        "Humidity",
-        "Point"
-      ],
-      "label": "FC_AirHumidity_Set",
-      "category": "humidity"
-    }
-  },
   "FruitCultivationMQTTThing_FCSoilph": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -41,6 +26,36 @@
       ],
       "label": "FC_Soilph",
       "category": "siren"
+    }
+  },
+  "FruitCultivationMQTTThing_FCSprinkler1": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "FruitCultivationLocation"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point",
+        "Water"
+      ],
+      "label": "FC_Sprinkler1",
+      "category": "water"
+    }
+  },
+  "FruitCultivationMQTTThing_FCSprinkler2": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "FruitCultivationLocation"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point",
+        "Water"
+      ],
+      "label": "FC_Sprinkler2",
+      "category": "water"
     }
   },
   "FruitCultivation_AirHumidity": {
@@ -88,7 +103,7 @@
       "category": "fan"
     }
   },
-  "FruitCultivation_FCSoilHumiditySet": {
+  "FruitCultivation_FCLightSet": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
       "groupNames": [
@@ -96,11 +111,11 @@
       ],
       "itemType": "Dimmer",
       "tags": [
-        "Humidity",
+        "Light",
         "Point"
       ],
-      "label": "FC_SoilHumidity_Set",
-      "category": "humidity"
+      "label": "FC_Light_Set",
+      "category": "light"
     }
   },
   "FruitCultivation_Light": {
@@ -144,7 +159,7 @@
         "Point",
         "Temperature"
       ],
-      "label": "FC_Temperature",
+      "label": "FC_Temperature1",
       "category": "temperature"
     }
   },
@@ -203,8 +218,38 @@
         "Point",
         "Power"
       ],
-      "label": "PC_Co2_Fan",
+      "label": "Fan1",
       "category": "fan"
+    }
+  },
+  "PotatoCultivationMQTTThing_PCSprinkler1": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "PotatoCultivation"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point",
+        "Water"
+      ],
+      "label": "PC_Sprinkler1",
+      "category": "water"
+    }
+  },
+  "PotatoCultivationMQTTThing_PCSprinkler2": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "PotatoCultivation"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point",
+        "Water"
+      ],
+      "label": "PC_Sprinkler2",
+      "category": "water"
     }
   },
   "PotatoCultivation_AirHumidity": {
@@ -219,21 +264,6 @@
         "Point"
       ],
       "label": "PC_AirHumidity",
-      "category": "humidity"
-    }
-  },
-  "PotatoCultivation_AirHumiditySet": {
-    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
-    "value": {
-      "groupNames": [
-        "PotatoCultivation"
-      ],
-      "itemType": "Dimmer",
-      "tags": [
-        "Humidity",
-        "Point"
-      ],
-      "label": "PC_AirHumidity_Set",
       "category": "humidity"
     }
   },
@@ -252,6 +282,21 @@
       "category": "light"
     }
   },
+  "PotatoCultivation_PCLightSet": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "PotatoCultivation"
+      ],
+      "itemType": "Dimmer",
+      "tags": [
+        "Light",
+        "Point"
+      ],
+      "label": "PC_Light_Set",
+      "category": "light"
+    }
+  },
   "PotatoCultivation_SoilHumidity": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -264,21 +309,6 @@
         "Point"
       ],
       "label": "PC_SoilHumidity",
-      "category": "humidity"
-    }
-  },
-  "PotatoCultivation_SoilHumiditySet": {
-    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
-    "value": {
-      "groupNames": [
-        "PotatoCultivation"
-      ],
-      "itemType": "Dimmer",
-      "tags": [
-        "Humidity",
-        "Point"
-      ],
-      "label": "PC_SoilHumidity_Set",
       "category": "humidity"
     }
   },
@@ -398,7 +428,7 @@
         "Point",
         "Temperature"
       ],
-      "label": "TC_Tempearature",
+      "label": "TC_Temperature1",
       "category": "temperature"
     }
   },
@@ -416,19 +446,64 @@
       "category": "greenhouse"
     }
   },
-  "TomatoCultivationMQTTThing_TCSoilHumiditySet": {
+  "TomatoCultivationMQTTThing_TCSprinkler1": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
       "groupNames": [
         "TomatoCultivationLocation"
       ],
-      "itemType": "Dimmer",
+      "itemType": "Switch",
       "tags": [
-        "Humidity",
-        "Point"
+        "Point",
+        "Water"
       ],
-      "label": "TC_SoilHumidity_Set",
-      "category": "humidity"
+      "label": "TC_Sprinkler1",
+      "category": "water"
+    }
+  },
+  "TomatoCultivationMQTTThing_TCSprinkler2": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "TomatoCultivationLocation"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point",
+        "Water"
+      ],
+      "label": "TC_Sprinkler2",
+      "category": "water"
+    }
+  },
+  "TomatoCultivationMQTTThing_TCSprinkler3": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "TomatoCultivationLocation"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point",
+        "Water"
+      ],
+      "label": "TC_Sprinkler3",
+      "category": "water"
+    }
+  },
+  "TomatoCultivationMQTTThing_TCTemperature2": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "TomatoCultivationLocation"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point",
+        "Temperature"
+      ],
+      "label": "TC_Temperature2",
+      "category": "temperature"
     }
   },
   "TomatoCultivation_CO2Fan": {
@@ -458,6 +533,21 @@
         "Point"
       ],
       "label": "TC_Light",
+      "category": "light"
+    }
+  },
+  "TomatoCultivation_TCLightSet": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "TomatoCultivationLocation"
+      ],
+      "itemType": "Dimmer",
+      "tags": [
+        "Light",
+        "Point"
+      ],
+      "label": "TC_Light_Set",
       "category": "light"
     }
   },

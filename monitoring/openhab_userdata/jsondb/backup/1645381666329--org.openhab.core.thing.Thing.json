@@ -7,7 +7,7 @@
       "configuration": {
         "properties": {
           "certificatepin": true,
-          "clientid": "1b509db7-01a6-4d2d-8151-8805a4b94c05",
+          "clientid": "84e85c30-8a7b-4021-b8b4-4288aeb1e824",
           "enableDiscovery": true,
           "host": "mosquitto",
           "keepAlive": 60,
@@ -76,7 +76,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "stateTopic": "home/greenhouse/potatocultivation/soilhumidity"
+              "stateTopic": "greenhouse/potato-cultivation-soil-hygrometer/hygrometer/humidity"
             }
           },
           "properties": {},
@@ -107,7 +107,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "stateTopic": "home/greenhouse/potatocultivation/temperature"
+              "stateTopic": "greenhouse/potato-cultivation-thermostat/thermostat/temperature"
             }
           },
           "properties": {},
@@ -138,7 +138,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "stateTopic": "home/greenhouse/potatocultivation/airhumidity"
+              "stateTopic": "greenhouse/potato-cultivation-air-hygrometer/hygrometer/humidity"
             }
           },
           "properties": {},
@@ -169,8 +169,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/potatocultivation/co2/set",
-              "stateTopic": "home/greenhouse/potatocultivation/co2"
+              "stateTopic": "greenhouse/potato-cultivation-co2-meter/co2-meter/carbone-dioxite"
             }
           },
           "properties": {},
@@ -201,8 +200,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/potatocultivation/soilph/set",
-              "stateTopic": "home/greenhouse/potatocultivation/soilph"
+              "stateTopic": "greenhouse/potato-cultivation-ph-meter/ph-meter/ph"
             }
           },
           "properties": {},
@@ -233,8 +231,8 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/potatocultivation/light/set",
-              "stateTopic": "home/greenhouse/potatocultivation/light"
+              "commandTopic": "greenhouse/potato-cultivation-light/light/luminosity/set",
+              "stateTopic": "greenhouse/potato-cultivation-light/light/luminosity"
             }
           },
           "properties": {},
@@ -265,7 +263,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/potatocultivation/temperature/set"
+              "commandTopic": "greenhouse/potato-cultivation-thermostat/thermostat/temperature/set"
             }
           },
           "properties": {},
@@ -296,71 +294,10 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/potatocultivation/co2/set",
+              "commandTopic": "greenhouse/potato-cultivation-fan/fan1/power/set",
               "off": "0",
-              "on": "1"
-            }
-          },
-          "properties": {},
-          "defaultTags": [],
-          "autoUpdatePolicy": "DEFAULT"
-        },
-        {
-          "acceptedItemType": "Dimmer",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mqtt",
-              "topic",
-              "5c17c82b8e",
-              "82bc2bf28a",
-              "PC_SoilHumidity_Set"
-            ],
-            "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_SoilHumidity_Set"
-          },
-          "channelTypeUID": {
-            "segments": [
-              "mqtt",
-              "dimmer"
-            ],
-            "uid": "mqtt:dimmer"
-          },
-          "label": "PC_SoilHumidity_Set",
-          "description": "",
-          "configuration": {
-            "properties": {
-              "commandTopic": "home/greenhouse/potatocultivation/soilhumidity/set"
-            }
-          },
-          "properties": {},
-          "defaultTags": [],
-          "autoUpdatePolicy": "DEFAULT"
-        },
-        {
-          "acceptedItemType": "Dimmer",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mqtt",
-              "topic",
-              "5c17c82b8e",
-              "82bc2bf28a",
-              "PC_AirHumidity_Set"
-            ],
-            "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_AirHumidity_Set"
-          },
-          "channelTypeUID": {
-            "segments": [
-              "mqtt",
-              "dimmer"
-            ],
-            "uid": "mqtt:dimmer"
-          },
-          "label": "PC_AirHumidity_Set",
-          "description": "",
-          "configuration": {
-            "properties": {
-              "commandTopic": "home/greenhouse/potatocultivation/airhumidity/set"
+              "on": "1",
+              "stateTopic": "greenhouse/potato-cultivation-fan/fan1/power"
             }
           },
           "properties": {},
@@ -391,7 +328,103 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/potatocultivation/light/set"
+              "commandTopic": "greenhouse/potato-cultivation-light/light/luminosity/set"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "5c17c82b8e",
+              "82bc2bf28a",
+              "PC_Sprinkler1"
+            ],
+            "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Sprinkler1"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "PC_Sprinkler1",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "greenhouse/potato-cultivation-sprinkler/sprinkler1/power/set",
+              "stateTopic": "greenhouse/potato-cultivation-sprinkler/sprinkler1/power"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "5c17c82b8e",
+              "82bc2bf28a",
+              "PC_Sprinkler2"
+            ],
+            "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Sprinkler2"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "PC_Sprinkler2",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "greenhouse/potato-cultivation-sprinkler/sprinkler2/power/set",
+              "stateTopic": "greenhouse/potato-cultivation-sprinkler/sprinkler2/power"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "5c17c82b8e",
+              "82bc2bf28a",
+              "PC_CO2_Fan2"
+            ],
+            "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_CO2_Fan2"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "PC_CO2_Fan2",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "greenhouse/potato-cultivation-fan/fan2/power/set",
+              "stateTopic": "greenhouse/potato-cultivation-fan/fan2/power"
             }
           },
           "properties": {},
@@ -494,8 +527,8 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/fruitcultivation/temperature/set",
-              "stateTopic": "home/greenhouse/fruitcultivation/temperature"
+              "commandTopic": "greenhouse/fruit-cultivation-thermostat/thermostat/temperature/set",
+              "stateTopic": "greenhouse/fruit-cultivation-thermostat/thermostat/temperature"
             }
           },
           "properties": {},
@@ -526,8 +559,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/fruitcultivation/soilph/set",
-              "stateTopic": "home/greenhouse/fruitcultivation/soilph"
+              "stateTopic": "greenhouse/fruit-cultivation-ph-meter/ph-meter/ph"
             }
           },
           "properties": {},
@@ -558,7 +590,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "stateTopic": "home/greenhouse/fruitcultivation/soilhumidity"
+              "stateTopic": "greenhouse/fruit-cultivation-soil-hygrometer/hygrometer/humidity"
             }
           },
           "properties": {},
@@ -589,7 +621,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "stateTopic": "home/greenhouse/fruitcultivation/airhumidity"
+              "stateTopic": "greenhouse/fruit-cultivation-air-hygrometer/hygrometer/humidity"
             }
           },
           "properties": {},
@@ -620,7 +652,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "stateTopic": "home/greenhouse/fruitcultivation/co2"
+              "stateTopic": "greenhouse/fruit-cultivation-co2-meter/co2-meter/carbone-dioxite"
             }
           },
           "properties": {},
@@ -651,7 +683,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "stateTopic": "home/greenhouse/fruitcultivation/light"
+              "stateTopic": "greenhouse/fruit-cultivation-light/light/luminosity"
             }
           },
           "properties": {},
@@ -682,7 +714,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/fruitcultivation/temperature/set"
+              "commandTopic": "greenhouse/potato-cultivation-thermostat/thermostat/temperature/set"
             }
           },
           "properties": {},
@@ -713,72 +745,10 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/fruitcultivation/co2/set",
+              "commandTopic": "greenhouse/fruit-cultivation-fan/fan/power/set",
               "off": "0",
-              "on": "1"
-            }
-          },
-          "properties": {},
-          "defaultTags": [],
-          "autoUpdatePolicy": "DEFAULT"
-        },
-        {
-          "acceptedItemType": "Dimmer",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mqtt",
-              "topic",
-              "5c17c82b8e",
-              "ecb0b1ff9e",
-              "FC_SoilHumidity_Set"
-            ],
-            "uid": "mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_SoilHumidity_Set"
-          },
-          "channelTypeUID": {
-            "segments": [
-              "mqtt",
-              "dimmer"
-            ],
-            "uid": "mqtt:dimmer"
-          },
-          "label": "FC_SoilHumidity_Set",
-          "description": "",
-          "configuration": {
-            "properties": {
-              "commandTopic": "home/greenhouse/fruitcultivation/soilhumidity/set"
-            }
-          },
-          "properties": {},
-          "defaultTags": [],
-          "autoUpdatePolicy": "DEFAULT"
-        },
-        {
-          "acceptedItemType": "Dimmer",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mqtt",
-              "topic",
-              "5c17c82b8e",
-              "ecb0b1ff9e",
-              "FC_AirHumidity_Set"
-            ],
-            "uid": "mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_AirHumidity_Set"
-          },
-          "channelTypeUID": {
-            "segments": [
-              "mqtt",
-              "dimmer"
-            ],
-            "uid": "mqtt:dimmer"
-          },
-          "label": "FC_AirHumidity_Set",
-          "description": "",
-          "configuration": {
-            "properties": {
-              "commandTopic": "home/greenhouse/fruitcultivation/airhumidity/set",
-              "stateTopic": "home/greenhouse/fruitcultivation/airhumidity/set"
+              "on": "1",
+              "stateTopic": "greenhouse/fruit-cultivation-fan/fan/power"
             }
           },
           "properties": {},
@@ -809,7 +779,71 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/fruitcultivation/light/set"
+              "commandTopic": "greenhouse/fruit-cultivation-light/light/luminosity/set"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "5c17c82b8e",
+              "ecb0b1ff9e",
+              "FC_Sprinkler1"
+            ],
+            "uid": "mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_Sprinkler1"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "FC_Sprinkler1",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "greenhouse/fruit-cultivation-sprinkler/sprinkler1/power/set",
+              "stateTopic": "greenhouse/fruit-cultivation-sprinkler/sprinkler1/power"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "5c17c82b8e",
+              "ecb0b1ff9e",
+              "FC_Sprinkler2"
+            ],
+            "uid": "mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_Sprinkler2"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "FC_Sprinkler2",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "greenhouse/fruit-cultivation-sprinkler/sprinkler2/power/set",
+              "stateTopic": "greenhouse/fruit-cultivation-sprinkler/sprinkler2/power"
             }
           },
           "properties": {},
@@ -875,7 +909,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "stateTopic": "home/greenhouse/tomatocultivation/airhumidity"
+              "stateTopic": "greenhouse/tomato-cultivation-air-hygrometer/hygrometer/humidity"
             }
           },
           "properties": {},
@@ -905,7 +939,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "stateTopic": "home/greenhouse/tomatocultivation/soilhumidity"
+              "stateTopic": "greenhouse/tomato-cultivation-soil-hygrometer/hygrometer/humidity"
             }
           },
           "properties": {},
@@ -935,8 +969,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/tomatocultivation/temperature/set",
-              "stateTopic": "home/greenhouse/tomatocultivation/temperature"
+              "stateTopic": "greenhouse/tomato-cultivation-thermostat/thermostat1/temperature"
             }
           },
           "properties": {},
@@ -966,8 +999,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/tomatocultivation/soilph/set",
-              "stateTopic": "home/greenhouse/tomatocultivation/soilph"
+              "stateTopic": "greenhouse/tomato-cultivation-ph-meter/ph-meter/ph"
             }
           },
           "properties": {},
@@ -997,7 +1029,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "stateTopic": "home/greenhouse/tomatocultivation/co2"
+              "stateTopic": "greenhouse/tomato-cultivation-co2-meter/co2-meter/carbone-dioxite"
             }
           },
           "properties": {},
@@ -1027,7 +1059,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "stateTopic": "home/greenhouse/tomatocultivation/light"
+              "stateTopic": "greenhouse/tomato-cultivation-light/light/luminosity"
             }
           },
           "properties": {},
@@ -1057,7 +1089,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/tomatocultivation/temperature/set"
+              "commandTopic": "greenhouse/tomato-cultivation-thermostat/thermostat1/temperature/set"
             }
           },
           "properties": {},
@@ -1087,69 +1119,10 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/tomatocultivation/co2/set",
+              "commandTopic": "greenhouse/tomato-cultivation-fan/fan/power/set",
               "off": "0",
-              "on": "1"
-            }
-          },
-          "properties": {},
-          "defaultTags": [],
-          "autoUpdatePolicy": "DEFAULT"
-        },
-        {
-          "acceptedItemType": "Dimmer",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mqtt",
-              "topic",
-              "a1ee1690fe",
-              "TC_Airhumidity_Set"
-            ],
-            "uid": "mqtt:topic:a1ee1690fe:TC_Airhumidity_Set"
-          },
-          "channelTypeUID": {
-            "segments": [
-              "mqtt",
-              "dimmer"
-            ],
-            "uid": "mqtt:dimmer"
-          },
-          "label": "TC_Airhumidity_Set",
-          "description": "",
-          "configuration": {
-            "properties": {
-              "commandTopic": "home/greenhouse/tomatocultivation/airhumidity/set"
-            }
-          },
-          "properties": {},
-          "defaultTags": [],
-          "autoUpdatePolicy": "DEFAULT"
-        },
-        {
-          "acceptedItemType": "Dimmer",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mqtt",
-              "topic",
-              "a1ee1690fe",
-              "TC_SoilHumidity_Set"
-            ],
-            "uid": "mqtt:topic:a1ee1690fe:TC_SoilHumidity_Set"
-          },
-          "channelTypeUID": {
-            "segments": [
-              "mqtt",
-              "dimmer"
-            ],
-            "uid": "mqtt:dimmer"
-          },
-          "label": "TC_SoilHumidity_Set",
-          "description": "",
-          "configuration": {
-            "properties": {
-              "commandTopic": "home/greenhouse/tomatocultivation/soilhumidity/set"
+              "on": "1",
+              "stateTopic": "greenhouse/tomato-cultivation-fan/fan/power"
             }
           },
           "properties": {},
@@ -1179,7 +1152,130 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/tomatocultivation/light/set"
+              "commandTopic": "greenhouse/tomato-cultivation-light/light/luminosity/set"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "a1ee1690fe",
+              "TC_Temperature2"
+            ],
+            "uid": "mqtt:topic:a1ee1690fe:TC_Temperature2"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "TC_Temperature2",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "stateTopic": "greenhouse/tomato-cultivation-thermostat/thermostat2/temperature"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "a1ee1690fe",
+              "TC_Sprinkler1"
+            ],
+            "uid": "mqtt:topic:a1ee1690fe:TC_Sprinkler1"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "TC_Sprinkler1",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler1/power/set",
+              "stateTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler1/power"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "a1ee1690fe",
+              "TC_Sprinkler2"
+            ],
+            "uid": "mqtt:topic:a1ee1690fe:TC_Sprinkler2"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "TC_Sprinkler2",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler2/power/set",
+              "stateTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler2/power"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "a1ee1690fe",
+              "TC_Sprinkler3"
+            ],
+            "uid": "mqtt:topic:a1ee1690fe:TC_Sprinkler3"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "TC_Sprinkler3",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler3/power/set",
+              "stateTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler3/power"
             }
           },
           "properties": {},
