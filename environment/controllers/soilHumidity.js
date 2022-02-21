@@ -38,6 +38,21 @@ module.exports = class SoilHumidity {
         }
     }
 
+    getSprinklerStatus() {
+        return (req, res) => {
+            if(req.params.sprinkler > this.fans.length || req.params.sprinkler <= 0) {
+                res.status(400).send(JSON.stringify({
+                    message: "This sprinkler does not exists"
+                }));
+                return;
+            }
+
+            res.status(200).json({
+                data: this.sprinklers[req.params.sprinkler]
+            });
+        }
+    }
+
     // Sets the sprinkler either to true or false, returns a 204 (succesful request with empty response)
     setSprinkler() {
         return (req, res) => {

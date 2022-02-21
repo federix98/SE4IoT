@@ -32,6 +32,7 @@ module.exports = class Greenhouse {
         this.router.post('/greenhouse/' + this.settings.name + '/luminosity/setLights', this.light.setLights());
         // Soil Humidity
         this.router.get('/greenhouse/' + this.settings.name + '/soilHumidity/:position', this.soilHumidity.get());
+        this.router.get('/greenhouse/' + this.settings.name + '/soilHumidity/:position/sprinkler', this.soilHumidity.getSprinkler());
         this.router.post('/greenhouse/' + this.settings.name + '/soilHumidity/setSprinkler', this.soilHumidity.setSprinkler());
         // Air Humidity
         this.router.get('/greenhouse/' + this.settings.name + '/airHumidity', this.airHumidity.get());
