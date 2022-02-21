@@ -7,7 +7,7 @@
       "configuration": {
         "properties": {
           "certificatepin": true,
-          "clientid": "b4ceb00c-4e8a-44b8-94f2-daa9885381ac",
+          "clientid": "bc4e7c73-a224-46bc-9a92-b34cdc5d093f",
           "enableDiscovery": true,
           "host": "mosquitto",
           "keepAlive": 60,
@@ -360,6 +360,8 @@
           "configuration": {
             "properties": {
               "commandTopic": "greenhouse/potato-cultivation-sprinkler/sprinkler1/power/set",
+              "off": "0",
+              "on": "1",
               "stateTopic": "greenhouse/potato-cultivation-sprinkler/sprinkler1/power"
             }
           },
@@ -392,6 +394,8 @@
           "configuration": {
             "properties": {
               "commandTopic": "greenhouse/potato-cultivation-sprinkler/sprinkler2/power/set",
+              "off": "0",
+              "on": "1",
               "stateTopic": "greenhouse/potato-cultivation-sprinkler/sprinkler2/power"
             }
           },
@@ -683,6 +687,7 @@
           "description": "",
           "configuration": {
             "properties": {
+              "commandTopic": "greenhouse/fruit-cultivation-light/light/luminosity/set",
               "stateTopic": "greenhouse/fruit-cultivation-light/light/luminosity"
             }
           },
@@ -756,37 +761,6 @@
           "autoUpdatePolicy": "DEFAULT"
         },
         {
-          "acceptedItemType": "Dimmer",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mqtt",
-              "topic",
-              "5c17c82b8e",
-              "ecb0b1ff9e",
-              "FC_Light_Set"
-            ],
-            "uid": "mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_Light_Set"
-          },
-          "channelTypeUID": {
-            "segments": [
-              "mqtt",
-              "dimmer"
-            ],
-            "uid": "mqtt:dimmer"
-          },
-          "label": "FC_Light_Set",
-          "description": "",
-          "configuration": {
-            "properties": {
-              "commandTopic": "greenhouse/fruit-cultivation-light/light/luminosity/set"
-            }
-          },
-          "properties": {},
-          "defaultTags": [],
-          "autoUpdatePolicy": "DEFAULT"
-        },
-        {
           "acceptedItemType": "Switch",
           "kind": "STATE",
           "uid": {
@@ -811,6 +785,8 @@
           "configuration": {
             "properties": {
               "commandTopic": "greenhouse/fruit-cultivation-sprinkler/sprinkler1/power/set",
+              "off": "0",
+              "on": "1",
               "stateTopic": "greenhouse/fruit-cultivation-sprinkler/sprinkler1/power"
             }
           },
@@ -843,6 +819,8 @@
           "configuration": {
             "properties": {
               "commandTopic": "greenhouse/fruit-cultivation-sprinkler/sprinkler2/power/set",
+              "off": "0",
+              "on": "1",
               "stateTopic": "greenhouse/fruit-cultivation-sprinkler/sprinkler2/power"
             }
           },
@@ -1213,6 +1191,8 @@
           "configuration": {
             "properties": {
               "commandTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler1/power/set",
+              "off": "0",
+              "on": "1",
               "stateTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler1/power"
             }
           },
@@ -1244,6 +1224,8 @@
           "configuration": {
             "properties": {
               "commandTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler2/power/set",
+              "off": "0",
+              "on": "1",
               "stateTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler2/power"
             }
           },
@@ -1275,6 +1257,8 @@
           "configuration": {
             "properties": {
               "commandTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler3/power/set",
+              "off": "0",
+              "on": "1",
               "stateTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler3/power"
             }
           },

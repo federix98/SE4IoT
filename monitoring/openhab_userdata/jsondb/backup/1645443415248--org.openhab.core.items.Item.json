@@ -24,7 +24,7 @@
         "Level",
         "Point"
       ],
-      "label": "FC_Soilph",
+      "label": "Soil Ph",
       "category": "siren"
     }
   },
@@ -39,7 +39,7 @@
         "Point",
         "Water"
       ],
-      "label": "FC_Sprinkler1",
+      "label": "Sprinkler1",
       "category": "water"
     }
   },
@@ -54,7 +54,7 @@
         "Point",
         "Water"
       ],
-      "label": "FC_Sprinkler2",
+      "label": "Sprinkler2",
       "category": "water"
     }
   },
@@ -69,7 +69,7 @@
         "Humidity",
         "Point"
       ],
-      "label": "FC_AirHumidity",
+      "label": "Air Humidity",
       "category": "humidity"
     }
   },
@@ -84,7 +84,7 @@
         "CO2",
         "Point"
       ],
-      "label": "FC_CO2",
+      "label": "CO2",
       "category": "carbondioxide"
     }
   },
@@ -99,23 +99,8 @@
         "Point",
         "Power"
       ],
-      "label": "FC_Co2_Fan",
+      "label": "Fan",
       "category": "fan"
-    }
-  },
-  "FruitCultivation_FCLightSet": {
-    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
-    "value": {
-      "groupNames": [
-        "FruitCultivationLocation"
-      ],
-      "itemType": "Dimmer",
-      "tags": [
-        "Light",
-        "Point"
-      ],
-      "label": "FC_Light_Set",
-      "category": "light"
     }
   },
   "FruitCultivation_Light": {
@@ -129,7 +114,7 @@
         "Light",
         "Point"
       ],
-      "label": "FC_Light",
+      "label": "Light",
       "category": "light"
     }
   },
@@ -144,7 +129,7 @@
         "Humidity",
         "Point"
       ],
-      "label": "FC_SoilHumidity",
+      "label": "Soil Humidity",
       "category": "humidity"
     }
   },
@@ -159,7 +144,7 @@
         "Point",
         "Temperature"
       ],
-      "label": "FC_Temperature1",
+      "label": "Temperature 1",
       "category": "temperature"
     }
   },
@@ -174,7 +159,7 @@
         "Point",
         "Temperature"
       ],
-      "label": "FC_Temperature_Set",
+      "label": "Temperature Thermostat",
       "category": "temperature_hot"
     }
   },
@@ -203,7 +188,7 @@
         "CO2",
         "Point"
       ],
-      "label": "PC_CO2",
+      "label": "CO2",
       "category": "carbondioxide"
     }
   },
@@ -218,7 +203,7 @@
         "Point",
         "Power"
       ],
-      "label": "PC_CO2_Fan2",
+      "label": "Fan2",
       "category": "fan"
     }
   },
@@ -248,7 +233,7 @@
         "Point",
         "Water"
       ],
-      "label": "PC_Sprinkler1",
+      "label": "Sprinkler1",
       "category": "water"
     }
   },
@@ -263,7 +248,7 @@
         "Point",
         "Water"
       ],
-      "label": "PC_Sprinkler2",
+      "label": "Sprinkler2",
       "category": "water"
     }
   },
@@ -278,7 +263,7 @@
         "Humidity",
         "Point"
       ],
-      "label": "PC_AirHumidity",
+      "label": "Air Humidity",
       "category": "humidity"
     }
   },
@@ -293,22 +278,7 @@
         "Light",
         "Point"
       ],
-      "label": "PC_Light",
-      "category": "light"
-    }
-  },
-  "PotatoCultivation_PCLightSet": {
-    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
-    "value": {
-      "groupNames": [
-        "PotatoCultivation"
-      ],
-      "itemType": "Dimmer",
-      "tags": [
-        "Light",
-        "Point"
-      ],
-      "label": "PC_Light_Set",
+      "label": "Light",
       "category": "light"
     }
   },
@@ -323,7 +293,7 @@
         "Humidity",
         "Point"
       ],
-      "label": "PC_SoilHumidity",
+      "label": "Soil Humidity",
       "category": "humidity"
     }
   },
@@ -338,7 +308,7 @@
         "Level",
         "Point"
       ],
-      "label": "PC_SoilPH",
+      "label": "Soil PH",
       "category": "siren"
     }
   },
@@ -353,7 +323,7 @@
         "Point",
         "Temperature"
       ],
-      "label": "PC_Temperature_Set",
+      "label": "Temperature Thermostat",
       "category": "temperature"
     }
   },
@@ -368,7 +338,7 @@
         "Point",
         "Temperature"
       ],
-      "label": "PC_Temperature",
+      "label": "Temperature",
       "category": "temperature"
     }
   },
@@ -383,7 +353,7 @@
         "Humidity",
         "Point"
       ],
-      "label": "TC_Airhumidity",
+      "label": "Air Humidity",
       "category": "humidity"
     }
   },
@@ -398,7 +368,7 @@
         "CO2",
         "Point"
       ],
-      "label": "TC_CO2",
+      "label": "CO2",
       "category": "carbondioxide"
     }
   },
@@ -413,7 +383,7 @@
         "Level",
         "Point"
       ],
-      "label": "TC_SoilPH",
+      "label": "Soil PH",
       "category": "siren"
     }
   },
@@ -428,7 +398,7 @@
         "Humidity",
         "Point"
       ],
-      "label": "TC_Soilhumidity",
+      "label": "Soil Humidity",
       "category": "humidity"
     }
   },
@@ -443,7 +413,7 @@
         "Point",
         "Temperature"
       ],
-      "label": "TC_Temperature1",
+      "label": "Temperature1",
       "category": "temperature"
     }
   },
@@ -472,7 +442,7 @@
         "Point",
         "Water"
       ],
-      "label": "TC_Sprinkler1",
+      "label": "Sprinkler1",
       "category": "water"
     }
   },
@@ -487,7 +457,7 @@
         "Point",
         "Water"
       ],
-      "label": "TC_Sprinkler2",
+      "label": "Sprinkler2",
       "category": "water"
     }
   },
@@ -502,7 +472,7 @@
         "Point",
         "Water"
       ],
-      "label": "TC_Sprinkler3",
+      "label": "Sprinkler3",
       "category": "water"
     }
   },
@@ -517,7 +487,7 @@
         "Point",
         "Temperature"
       ],
-      "label": "TC_Temperature2",
+      "label": "Temperature2",
       "category": "temperature"
     }
   },
@@ -532,7 +502,7 @@
         "Point",
         "Power"
       ],
-      "label": "TC_CO2_Fan",
+      "label": "Fan",
       "category": "fan"
     }
   },
@@ -547,22 +517,7 @@
         "Light",
         "Point"
       ],
-      "label": "TC_Light",
-      "category": "light"
-    }
-  },
-  "TomatoCultivation_TCLightSet": {
-    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
-    "value": {
-      "groupNames": [
-        "TomatoCultivationLocation"
-      ],
-      "itemType": "Dimmer",
-      "tags": [
-        "Light",
-        "Point"
-      ],
-      "label": "TC_Light_Set",
+      "label": "Light",
       "category": "light"
     }
   },
@@ -577,7 +532,7 @@
         "Point",
         "Temperature"
       ],
-      "label": "TC_Temperature_Set",
+      "label": "Temperature Thermostat",
       "category": "temperature_hot"
     }
   }
