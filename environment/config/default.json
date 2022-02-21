@@ -10,6 +10,41 @@
                 "lowerDeviationDelta": 0.95,
                 "upperDeviationDelta": 1.05,
                 "frequency": 5000
+            }, 
+            "light": {
+                "min_light": 0,
+                "max_light": 100,
+                "delta": 4,
+                "frequency": 5000
+            },
+            "soilHumidity": {
+                "positions": 1,
+                "sprinklers": 3,
+                "min_hum": 25,
+                "max_hum": 75,
+                "delta": 1.0,
+                "lowerDeviationDelta": 0.95,
+                "upperDeviationDelta": 1.05,
+                "frequency": 5000
+            },
+            "airHumidity": {
+                "min_hum": 25,
+                "max_hum": 75,
+                "delta": 1.0,
+                "frequency": 5000
+            },
+            "co2": {
+                "fans": 2,
+                "min_co2": 5,
+                "max_co2": 15,
+                "delta": 1.2,
+                "frequency": 5000
+            }, 
+            "ph": {
+                "min_ph": 0,
+                "max_ph": 14,
+                "delta": 0.5,
+                "frequency": 5000
             }
         },
         {
@@ -22,6 +57,41 @@
                 "lowerDeviationDelta": 0.95,
                 "upperDeviationDelta": 1.05,
                 "frequency": 5000
+            }, 
+            "light": {
+                "min_light": 0,
+                "max_light": 100,
+                "delta": 4,
+                "frequency": 5000
+            },
+            "soilHumidity": {
+                "positions": 1,
+                "sprinklers": 3,
+                "min_hum": 25,
+                "max_hum": 75,
+                "delta": 1.0,
+                "lowerDeviationDelta": 0.95,
+                "upperDeviationDelta": 1.05,
+                "frequency": 5000
+            },
+            "airHumidity": {
+                "min_hum": 25,
+                "max_hum": 75,
+                "delta": 1.0,
+                "frequency": 5000
+            },
+            "co2": {
+                "fans": 2,
+                "min_co2": 5,
+                "max_co2": 15,
+                "delta": 1.2,
+                "frequency": 5000
+            }, 
+            "ph": {
+                "min_ph": 0,
+                "max_ph": 14,
+                "delta": 0.5,
+                "frequency": 5000
             }
         },
         {
@@ -33,6 +103,41 @@
                 "delta": 1.2,
                 "lowerDeviationDelta": 0.95,
                 "upperDeviationDelta": 1.05,
+                "frequency": 5000
+            }, 
+            "light": {
+                "min_light": 0,
+                "max_light": 100,
+                "delta": 4,
+                "frequency": 5000
+            },
+            "soilHumidity": {
+                "positions": 1,
+                "sprinklers": 3,
+                "min_hum": 25,
+                "max_hum": 75,
+                "delta": 1.0,
+                "lowerDeviationDelta": 0.95,
+                "upperDeviationDelta": 1.05,
+                "frequency": 5000
+            },
+            "airHumidity": {
+                "min_hum": 25,
+                "max_hum": 75,
+                "delta": 1.0,
+                "frequency": 5000
+            },
+            "co2": {
+                "fans": 2,
+                "min_co2": 5,
+                "max_co2": 15,
+                "delta": 1.2,
+                "frequency": 5000
+            }, 
+            "ph": {
+                "min_ph": 0,
+                "max_ph": 14,
+                "delta": 0.5,
                 "frequency": 5000
             }
         }
