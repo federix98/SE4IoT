@@ -7,7 +7,7 @@
       "configuration": {
         "properties": {
           "certificatepin": true,
-          "clientid": "84e85c30-8a7b-4021-b8b4-4288aeb1e824",
+          "clientid": "94e4c3e5-30f3-4112-8cb1-e97545b92554",
           "enableDiscovery": true,
           "host": "mosquitto",
           "keepAlive": 60,
@@ -200,8 +200,7 @@
           "description": "",
           "configuration": {
             "properties": {
-              "commandTopic": "home/greenhouse/potatocultivation/soilph/set",
-              "stateTopic": "home/greenhouse/potatocultivation/soilph"
+              "stateTopic": "greenhouse/potato-cultivation-ph-meter/ph-meter/ph"
             }
           },
           "properties": {},
