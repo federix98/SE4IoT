@@ -6,7 +6,7 @@ module.exports = class Ph {
         this.min = settings.min_ph;
         this.frequency = settings.frequency;
         this.timestamp = Date.now();
-        this.luminosity = Math.round(((Math.random() * (this.max - this.min) + this.min) + Number.EPSILON) * 10) / 10;
+        this.ph = Math.round(((Math.random() * (this.max - this.min) + this.min) + Number.EPSILON) * 10) / 10;
         this.startSimulation();
     }
 
@@ -18,7 +18,7 @@ module.exports = class Ph {
         return (req, res) => {
             res.status(200).json({
                 timeOfMeasurement: this.timestamp,
-                data: this.luminosity
+                data: this.ph
             });
         }
     }
@@ -27,15 +27,15 @@ module.exports = class Ph {
     computePH() {
         return () => {
             if (Math.round(Math.random()) === 1) {
-                this.max = this.luminosity + this.delta;
-                this.min = this.luminosity;
+                this.max = this.ph + this.delta;
+                this.min = this.ph;
             } else {
-                this.max = this.luminosity;
-                this.min = this.luminosity - this.delta;
+                this.max = this.ph;
+                this.min = this.ph - this.delta;
             }
 
             this.timestamp = Date.now();
-            this.luminosity = Math.round(((Math.random() * (this.max - this.min) + this.min) + Number.EPSILON) * 10) / 10;
+            this.ph = Math.round(((Math.random() * (this.max - this.min) + this.min) + Number.EPSILON) * 10) / 10;
             if(this.ph < 0) 
                 this.ph = 0;
         }
