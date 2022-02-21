@@ -87,6 +87,8 @@ module.exports = class SoilHumidity {
 
             this.timestamp = Date.now();
             this.humidity = Math.round(((Math.random() * (this.max - this.min) + this.min) + Number.EPSILON) * 100) / 100;
+            if(this.humidity < 0)
+                this.humidity = 0;
         }
     }
 }

@@ -44,6 +44,8 @@ module.exports = class Light {
 
             this.timestamp = Date.now();
             this.luminosity = Math.round(((Math.random() * (this.max - this.min) + this.min) + Number.EPSILON) * 10) / 10;
+            if(this.luminosity < 0)
+                this.luminosity = 0;
         }
     }
 }

@@ -35,6 +35,8 @@ module.exports = class AirHumidity {
 
             this.timestamp = Date.now();
             this.humidity = Math.round(((Math.random() * (this.max - this.min) + this.min) + Number.EPSILON) * 10) / 10;
+            if(this.humidity < 0)
+                this.humidity = 0;
         }
     }
 }

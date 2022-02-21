@@ -36,6 +36,8 @@ module.exports = class Ph {
 
             this.timestamp = Date.now();
             this.luminosity = Math.round(((Math.random() * (this.max - this.min) + this.min) + Number.EPSILON) * 10) / 10;
+            if(this.ph < 0) 
+                this.ph = 0;
         }
     }
 }

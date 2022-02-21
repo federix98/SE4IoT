@@ -80,6 +80,8 @@ module.exports = class Co2 {
 
             this.timestamp = Date.now();
             this.co2 = Math.round(((Math.random() * (this.max - this.min) + this.min) + Number.EPSILON) * 100) / 100;
+            if (this.co2 < 0)
+                this.co2 = 0;
         }
     }
 }
