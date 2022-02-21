@@ -8,9 +8,25 @@
         "env": []
     },
     {
+        "id": "5765d2042467176e",
+        "type": "tab",
+        "label": "Tomato-Cultivation-Actuators",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "2b76b31a25729239",
         "type": "tab",
         "label": "Potato-Cultivation-Sensors",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bc46c625992fa48f",
+        "type": "tab",
+        "label": "Potato-Cultivation-Actuators",
         "disabled": false,
         "info": "",
         "env": []
@@ -24,9 +40,9 @@
         "env": []
     },
     {
-        "id": "5765d2042467176e",
+        "id": "32f53e94461ec6e8",
         "type": "tab",
-        "label": "Tomato-Cultivation-Actuators",
+        "label": "Fruit-Cultivation-Actuators",
         "disabled": false,
         "info": "",
         "env": []
@@ -101,6 +117,7 @@
         "once": true,
         "onceDelay": "5",
         "topic": "",
+        "payload": "",
         "payloadType": "date",
         "x": 110,
         "y": 360,
@@ -748,6 +765,359 @@
         ]
     },
     {
+        "id": "cf21937e15f701cf",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "[HTTP POST SETTING] SetHeating",
+        "func": "console.log(\"Read on topic: \" + msg.payload)\n\nmsg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/temperature/setHeating\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nheatingOn = false\nif (msg.payload == 1) heatingOn = true\n\nmsg.payload = {\n    \"heatingOn\": heatingOn\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 180,
+        "wires": [
+            [
+                "ac8cbb3e6c7e5faf"
+            ]
+        ]
+    },
+    {
+        "id": "ac8cbb3e6c7e5faf",
+        "type": "http request",
+        "z": "5765d2042467176e",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1530,
+        "y": 440,
+        "wires": [
+            [
+                "c1e50d9228403761"
+            ]
+        ]
+    },
+    {
+        "id": "c7497760547ae6d2",
+        "type": "debug",
+        "z": "5765d2042467176e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "\"Message sent\"",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "c1e50d9228403761",
+        "type": "switch",
+        "z": "5765d2042467176e",
+        "name": "CheckResponseStatus",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "204",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "204",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1780,
+        "y": 440,
+        "wires": [
+            [
+                "c7497760547ae6d2"
+            ],
+            [
+                "ae95f3a966d3eac1"
+            ]
+        ]
+    },
+    {
+        "id": "ae95f3a966d3eac1",
+        "type": "debug",
+        "z": "5765d2042467176e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "\"Error while sending message\"",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "b6fca46eb614f77a",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "[HTTP POST SETTING] SetLight",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/luminosity/setLights\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nlightsOn = false\nif (msg.payload > 50) lightsOn = true\n\nmsg.payload = {\n    \"lightsON\": lightsOn\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 280,
+        "wires": [
+            [
+                "ac8cbb3e6c7e5faf"
+            ]
+        ]
+    },
+    {
+        "id": "80dd0c0fd04315db",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "[HTTP POST SETTING] Sprinkler",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/soilHumidity/setSprinkler\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nif (msg.payload == 1) sprinklerStatus = true\nelse sprinklerStatus = false\n\nmsg.payload = {\n    \"sprinkler\": 3,\n    \"sprinklerON\": sprinklerStatus\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 500,
+        "wires": [
+            [
+                "ac8cbb3e6c7e5faf"
+            ]
+        ]
+    },
+    {
+        "id": "bccd87d7833dfd86",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "[HTTP POST SETTING] Fan",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/co2/setFan\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nfanOn = false\nif (msg.payload == 1) fanOn = true\n\nmsg.payload = {\n    \"fan\": 1,\n    \"fanON\": fanOn\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 600,
+        "wires": [
+            [
+                "ac8cbb3e6c7e5faf"
+            ]
+        ]
+    },
+    {
+        "id": "2fe462ebc3a1e7fd",
+        "type": "mqtt in",
+        "z": "5765d2042467176e",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-thermostat/thermostat1/temperature/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 650,
+        "y": 140,
+        "wires": [
+            [
+                "cf21937e15f701cf"
+            ]
+        ]
+    },
+    {
+        "id": "7b864f8f111e8288",
+        "type": "mqtt in",
+        "z": "5765d2042467176e",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-thermostat/thermostat2/temperature/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 650,
+        "y": 200,
+        "wires": [
+            [
+                "cf21937e15f701cf"
+            ]
+        ]
+    },
+    {
+        "id": "bc06730328dcf1d0",
+        "type": "mqtt in",
+        "z": "5765d2042467176e",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-light/light/luminosity/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 700,
+        "y": 280,
+        "wires": [
+            [
+                "b6fca46eb614f77a"
+            ]
+        ]
+    },
+    {
+        "id": "53400a4dbf8f2aec",
+        "type": "mqtt in",
+        "z": "5765d2042467176e",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler1/power/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 380,
+        "wires": [
+            [
+                "bbae81f2473f9366"
+            ]
+        ]
+    },
+    {
+        "id": "89a91a8a3ce3458e",
+        "type": "mqtt in",
+        "z": "5765d2042467176e",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler2/power/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 440,
+        "wires": [
+            [
+                "721a5a878f46c7ef"
+            ]
+        ],
+        "outputLabels": [
+            "oo"
+        ]
+    },
+    {
+        "id": "561d21c568c6bc9a",
+        "type": "mqtt in",
+        "z": "5765d2042467176e",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler3/power/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 500,
+        "wires": [
+            [
+                "80dd0c0fd04315db"
+            ]
+        ]
+    },
+    {
+        "id": "fe41db205e22469e",
+        "type": "mqtt in",
+        "z": "5765d2042467176e",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-fan/fan/power",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 730,
+        "y": 600,
+        "wires": [
+            [
+                "bccd87d7833dfd86"
+            ]
+        ]
+    },
+    {
+        "id": "bbae81f2473f9366",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "[HTTP POST SETTING] Sprinkler",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/soilHumidity/setSprinkler\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nif (msg.payload == 1) sprinklerStatus = true\nelse sprinklerStatus = false\n\nmsg.payload = {\n    \"sprinkler\": 1,\n    \"sprinklerON\": sprinklerStatus\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 380,
+        "wires": [
+            [
+                "ac8cbb3e6c7e5faf"
+            ]
+        ]
+    },
+    {
+        "id": "721a5a878f46c7ef",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "[HTTP POST SETTING] Sprinkler",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/soilHumidity/setSprinkler\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nif (msg.payload == 1) sprinklerStatus = true\nelse sprinklerStatus = false\n\nmsg.payload = {\n    \"sprinkler\": 2,\n    \"sprinklerON\": sprinklerStatus\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 440,
+        "wires": [
+            [
+                "ac8cbb3e6c7e5faf"
+            ]
+        ]
+    },
+    {
         "id": "107ed8186a51c686",
         "type": "http request",
         "z": "2b76b31a25729239",
@@ -1378,6 +1748,338 @@
         ]
     },
     {
+        "id": "d12870f13eb39d0c",
+        "type": "function",
+        "z": "bc46c625992fa48f",
+        "name": "[HTTP POST SETTING] Fan",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/potato-cultivation/co2/setFan\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nfanOn = false\nif (msg.payload == 1) fanOn = true\n\nmsg.payload = {\n    \"fan\": 1,\n    \"fanON\": fanOn\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 520,
+        "wires": [
+            [
+                "cdccffaa33cfcfc8"
+            ]
+        ]
+    },
+    {
+        "id": "50d5f711cf82a285",
+        "type": "mqtt in",
+        "z": "bc46c625992fa48f",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-thermostat/thermostat/temperature/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 100,
+        "wires": [
+            [
+                "0b633bece7b25c24"
+            ]
+        ]
+    },
+    {
+        "id": "53402fe9f9962c42",
+        "type": "mqtt in",
+        "z": "bc46c625992fa48f",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-light/light/luminosity/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "f16714779bc37f34"
+            ]
+        ]
+    },
+    {
+        "id": "bc6a36529511e590",
+        "type": "mqtt in",
+        "z": "bc46c625992fa48f",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler1/power/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 300,
+        "wires": [
+            [
+                "d12bf19e84c3280f"
+            ]
+        ]
+    },
+    {
+        "id": "4fde7c6c95a4b471",
+        "type": "mqtt in",
+        "z": "bc46c625992fa48f",
+        "name": "",
+        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler2/power/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 360,
+        "wires": [
+            [
+                "70301b60d4416114"
+            ]
+        ],
+        "outputLabels": [
+            "oo"
+        ]
+    },
+    {
+        "id": "60551d080027ca16",
+        "type": "mqtt in",
+        "z": "bc46c625992fa48f",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-fan/fan1/power/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 520,
+        "wires": [
+            [
+                "d12870f13eb39d0c"
+            ]
+        ]
+    },
+    {
+        "id": "0b633bece7b25c24",
+        "type": "function",
+        "z": "bc46c625992fa48f",
+        "name": "[HTTP POST SETTING] SetHeating",
+        "func": "console.log(\"Read on topic: \" + msg.payload)\n\nmsg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/potato-cultivation/temperature/setHeating\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nheatingOn = false\nif (msg.payload == 1) heatingOn = true\n\nmsg.payload = {\n    \"heatingOn\": heatingOn\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 100,
+        "wires": [
+            [
+                "cdccffaa33cfcfc8"
+            ]
+        ]
+    },
+    {
+        "id": "cdccffaa33cfcfc8",
+        "type": "http request",
+        "z": "bc46c625992fa48f",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1130,
+        "y": 360,
+        "wires": [
+            [
+                "84818f1706dcd77f"
+            ]
+        ]
+    },
+    {
+        "id": "f16714779bc37f34",
+        "type": "function",
+        "z": "bc46c625992fa48f",
+        "name": "[HTTP POST SETTING] SetLight",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/potato-cultivation/luminosity/setLights\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nlightsOn = false\nif (msg.payload > 50) lightsOn = true\n\nmsg.payload = {\n    \"lightsON\": lightsOn\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 200,
+        "wires": [
+            [
+                "cdccffaa33cfcfc8"
+            ]
+        ]
+    },
+    {
+        "id": "d12bf19e84c3280f",
+        "type": "function",
+        "z": "bc46c625992fa48f",
+        "name": "[HTTP POST SETTING] Sprinkler",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/potato-cultivation/soilHumidity/setSprinkler\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nif (msg.payload == 1) sprinklerStatus = true\nelse sprinklerStatus = false\n\nmsg.payload = {\n    \"sprinkler\": 1,\n    \"sprinklerON\": sprinklerStatus\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 300,
+        "wires": [
+            [
+                "cdccffaa33cfcfc8"
+            ]
+        ]
+    },
+    {
+        "id": "70301b60d4416114",
+        "type": "function",
+        "z": "bc46c625992fa48f",
+        "name": "[HTTP POST SETTING] Sprinkler",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/potato-cultivation/soilHumidity/setSprinkler\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nif (msg.payload == 1) sprinklerStatus = true\nelse sprinklerStatus = false\n\nmsg.payload = {\n    \"sprinkler\": 2,\n    \"sprinklerON\": sprinklerStatus\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 360,
+        "wires": [
+            [
+                "cdccffaa33cfcfc8"
+            ]
+        ]
+    },
+    {
+        "id": "feea10d0d1d66843",
+        "type": "debug",
+        "z": "bc46c625992fa48f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "\"Message sent\"",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1580,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "84818f1706dcd77f",
+        "type": "switch",
+        "z": "bc46c625992fa48f",
+        "name": "CheckResponseStatus",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "204",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "204",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1380,
+        "y": 360,
+        "wires": [
+            [
+                "feea10d0d1d66843"
+            ],
+            [
+                "98bad73fa3c3e2e2"
+            ]
+        ]
+    },
+    {
+        "id": "98bad73fa3c3e2e2",
+        "type": "debug",
+        "z": "bc46c625992fa48f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "\"Error while sending message\"",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1580,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "5e4362bac5613755",
+        "type": "function",
+        "z": "bc46c625992fa48f",
+        "name": "[HTTP POST SETTING] Fan",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/potato-cultivation/co2/setFan\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nfanOn = false\nif (msg.payload == 1) fanOn = true\n\nmsg.payload = {\n    \"fan\": 2,\n    \"fanON\": fanOn\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 580,
+        "wires": [
+            [
+                "cdccffaa33cfcfc8"
+            ]
+        ]
+    },
+    {
+        "id": "3f05979aa56f8138",
+        "type": "mqtt in",
+        "z": "bc46c625992fa48f",
+        "name": "",
+        "topic": "greenhouse/potato-cultivation-fan/fan2/power/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 580,
+        "wires": [
+            [
+                "5e4362bac5613755"
+            ]
+        ]
+    },
+    {
         "id": "f0108f6f32043bc9",
         "type": "http request",
         "z": "9d31b571286da958",
@@ -1948,50 +2650,234 @@
         ]
     },
     {
-        "id": "cf21937e15f701cf",
+        "id": "f0d25975f1dcefd7",
         "type": "function",
-        "z": "5765d2042467176e",
-        "name": "[HTTP POST SETTING] SetHeating",
-        "func": "console.log(\"Read on topic: \" + msg.payload)\n\nmsg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/temperature/setHeating\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nmsg.payload = {\n    \"heatingOn\": msg.payload\n};\n\nreturn msg",
+        "z": "32f53e94461ec6e8",
+        "name": "[HTTP POST SETTING] Fan",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/fruit-cultivation/co2/setFan\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nfanOn = false\nif (msg.payload == 1) fanOn = true\n\nmsg.payload = {\n    \"fan\": 1,\n    \"fanON\": fanOn\n};\n\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1160,
-        "y": 180,
+        "x": 740,
+        "y": 480,
         "wires": [
             [
-                "ac8cbb3e6c7e5faf"
+                "a1f524f3b35935a2"
             ]
         ]
     },
     {
-        "id": "ac8cbb3e6c7e5faf",
+        "id": "9f91303d1cc00c2d",
+        "type": "mqtt in",
+        "z": "32f53e94461ec6e8",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-thermostat/thermostat/temperature/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 60,
+        "wires": [
+            [
+                "6a3491715ccef11a"
+            ]
+        ]
+    },
+    {
+        "id": "9bf4ef6a542c3236",
+        "type": "mqtt in",
+        "z": "32f53e94461ec6e8",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-light/light/luminosity/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 160,
+        "wires": [
+            [
+                "da4e798eba60327b"
+            ]
+        ]
+    },
+    {
+        "id": "35668ac775ebcb49",
+        "type": "mqtt in",
+        "z": "32f53e94461ec6e8",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-sprinkler/sprinkler1/power/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "18e090766fafdebd"
+            ]
+        ]
+    },
+    {
+        "id": "d7f5437c1177200e",
+        "type": "mqtt in",
+        "z": "32f53e94461ec6e8",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-sprinkler/sprinkler2/power/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 320,
+        "wires": [
+            [
+                "258e3730e5e32584"
+            ]
+        ],
+        "outputLabels": [
+            "oo"
+        ]
+    },
+    {
+        "id": "9a65fd9c5f22ad0b",
+        "type": "mqtt in",
+        "z": "32f53e94461ec6e8",
+        "name": "",
+        "topic": "greenhouse/fruit-cultivation-fan/fan/power/set",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 480,
+        "wires": [
+            [
+                "f0d25975f1dcefd7"
+            ]
+        ]
+    },
+    {
+        "id": "6a3491715ccef11a",
+        "type": "function",
+        "z": "32f53e94461ec6e8",
+        "name": "[HTTP POST SETTING] SetHeating",
+        "func": "console.log(\"Read on topic: \" + msg.payload)\n\nmsg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/fruit-cultivation/temperature/setHeating\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nheatingOn = false\nif (msg.payload == 1) heatingOn = true\n\nmsg.payload = {\n    \"heatingOn\": heatingOn\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 60,
+        "wires": [
+            [
+                "a1f524f3b35935a2"
+            ]
+        ]
+    },
+    {
+        "id": "da4e798eba60327b",
+        "type": "function",
+        "z": "32f53e94461ec6e8",
+        "name": "[HTTP POST SETTING] SetLight",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/fruit-cultivation/luminosity/setLights\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nlightsOn = false\nif (msg.payload > 50) lightsOn = true\n\nmsg.payload = {\n    \"lightsON\": lightsOn\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 160,
+        "wires": [
+            [
+                "a1f524f3b35935a2"
+            ]
+        ]
+    },
+    {
+        "id": "18e090766fafdebd",
+        "type": "function",
+        "z": "32f53e94461ec6e8",
+        "name": "[HTTP POST SETTING] Sprinkler",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/fruit-cultivation/soilHumidity/setSprinkler\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nif (msg.payload == 1) sprinklerStatus = true\nelse sprinklerStatus = false\n\nmsg.payload = {\n    \"sprinkler\": 1,\n    \"sprinklerON\": sprinklerStatus\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 260,
+        "wires": [
+            [
+                "a1f524f3b35935a2"
+            ]
+        ]
+    },
+    {
+        "id": "258e3730e5e32584",
+        "type": "function",
+        "z": "32f53e94461ec6e8",
+        "name": "[HTTP POST SETTING] Sprinkler",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/fruit-cultivation/soilHumidity/setSprinkler\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nif (msg.payload == 1) sprinklerStatus = true\nelse sprinklerStatus = false\n\nmsg.payload = {\n    \"sprinkler\": 2,\n    \"sprinklerON\": sprinklerStatus\n};\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 320,
+        "wires": [
+            [
+                "a1f524f3b35935a2"
+            ]
+        ]
+    },
+    {
+        "id": "a1f524f3b35935a2",
         "type": "http request",
-        "z": "5765d2042467176e",
+        "z": "32f53e94461ec6e8",
         "name": "",
         "method": "use",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "http://web:8000/greenhouse/tomato-cultivation/temperature/setHeating",
+        "url": "",
         "tls": "",
         "persist": false,
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 1550,
-        "y": 400,
+        "x": 1130,
+        "y": 320,
         "wires": [
             [
-                "c1e50d9228403761"
+                "49f607c9de42569a"
             ]
         ]
     },
     {
-        "id": "c7497760547ae6d2",
+        "id": "70a8ea9a6c8469d5",
         "type": "debug",
-        "z": "5765d2042467176e",
+        "z": "32f53e94461ec6e8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -2001,14 +2887,14 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2000,
-        "y": 360,
+        "x": 1580,
+        "y": 280,
         "wires": []
     },
     {
-        "id": "c1e50d9228403761",
+        "id": "49f607c9de42569a",
         "type": "switch",
-        "z": "5765d2042467176e",
+        "z": "32f53e94461ec6e8",
         "name": "CheckResponseStatus",
         "property": "statusCode",
         "propertyType": "msg",
@@ -2027,21 +2913,21 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1780,
-        "y": 400,
+        "x": 1380,
+        "y": 320,
         "wires": [
             [
-                "c7497760547ae6d2"
+                "70a8ea9a6c8469d5"
             ],
             [
-                "ae95f3a966d3eac1"
+                "b6a768974926869f"
             ]
         ]
     },
     {
-        "id": "ae95f3a966d3eac1",
+        "id": "b6a768974926869f",
         "type": "debug",
-        "z": "5765d2042467176e",
+        "z": "32f53e94461ec6e8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -2051,212 +2937,8 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2000,
-        "y": 440,
+        "x": 1580,
+        "y": 360,
         "wires": []
-    },
-    {
-        "id": "b6fca46eb614f77a",
-        "type": "function",
-        "z": "5765d2042467176e",
-        "name": "[HTTP POST SETTING] SetLight",
-        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/light/__to_fill\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nmsg.payload = {\n    \"__to_fill__\": msg.payload\n};\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1150,
-        "y": 280,
-        "wires": [
-            [
-                "ac8cbb3e6c7e5faf"
-            ]
-        ]
-    },
-    {
-        "id": "80dd0c0fd04315db",
-        "type": "function",
-        "z": "5765d2042467176e",
-        "name": "[HTTP POST SETTING] Sprinkler",
-        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/sprinkler/__to_fill\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nmsg.payload = {\n    \"__to_fill__\": msg.payload\n};\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1160,
-        "y": 440,
-        "wires": [
-            [
-                "ac8cbb3e6c7e5faf"
-            ]
-        ]
-    },
-    {
-        "id": "bccd87d7833dfd86",
-        "type": "function",
-        "z": "5765d2042467176e",
-        "name": "[HTTP POST SETTING] Fan",
-        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/temperature/__to_fill__\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nmsg.payload = {\n    \"__to_fill__\": msg.payload\n};\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1140,
-        "y": 600,
-        "wires": [
-            [
-                "ac8cbb3e6c7e5faf"
-            ]
-        ]
-    },
-    {
-        "id": "2fe462ebc3a1e7fd",
-        "type": "mqtt in",
-        "z": "5765d2042467176e",
-        "name": "",
-        "topic": "greenhouse/tomato-cultivation-thermostat/thermostat1/temperature/set",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "8a45ccd334f47670",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 650,
-        "y": 140,
-        "wires": [
-            [
-                "cf21937e15f701cf"
-            ]
-        ]
-    },
-    {
-        "id": "7b864f8f111e8288",
-        "type": "mqtt in",
-        "z": "5765d2042467176e",
-        "name": "",
-        "topic": "greenhouse/tomato-cultivation-thermostat/thermostat2/temperature/set",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "8a45ccd334f47670",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 650,
-        "y": 200,
-        "wires": [
-            [
-                "cf21937e15f701cf"
-            ]
-        ]
-    },
-    {
-        "id": "bc06730328dcf1d0",
-        "type": "mqtt in",
-        "z": "5765d2042467176e",
-        "name": "",
-        "topic": "greenhouse/tomato-cultivation-light/light/luminosity/set",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "8a45ccd334f47670",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 700,
-        "y": 280,
-        "wires": [
-            [
-                "b6fca46eb614f77a"
-            ]
-        ]
-    },
-    {
-        "id": "53400a4dbf8f2aec",
-        "type": "mqtt in",
-        "z": "5765d2042467176e",
-        "name": "",
-        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler1/power/set",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "8a45ccd334f47670",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 680,
-        "y": 380,
-        "wires": [
-            [
-                "80dd0c0fd04315db"
-            ]
-        ]
-    },
-    {
-        "id": "89a91a8a3ce3458e",
-        "type": "mqtt in",
-        "z": "5765d2042467176e",
-        "name": "",
-        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler2/power/set",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "8a45ccd334f47670",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 680,
-        "y": 440,
-        "wires": [
-            [
-                "80dd0c0fd04315db"
-            ]
-        ]
-    },
-    {
-        "id": "561d21c568c6bc9a",
-        "type": "mqtt in",
-        "z": "5765d2042467176e",
-        "name": "",
-        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler3/power/set",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "8a45ccd334f47670",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 680,
-        "y": 500,
-        "wires": [
-            [
-                "80dd0c0fd04315db"
-            ]
-        ]
-    },
-    {
-        "id": "fe41db205e22469e",
-        "type": "mqtt in",
-        "z": "5765d2042467176e",
-        "name": "",
-        "topic": "greenhouse/tomato-cultivation-fan/fan/power",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "8a45ccd334f47670",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 730,
-        "y": 600,
-        "wires": [
-            [
-                "bccd87d7833dfd86"
-            ]
-        ]
     }
 ]
