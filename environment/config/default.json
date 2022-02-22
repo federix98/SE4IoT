@@ -15,7 +15,7 @@
                 "min_light": 0,
                 "max_light": 100,
                 "delta": 4,
-                "frequency": 5000
+                "frequency": 15000
             },
             "soilHumidity": {
                 "positions": 1,
@@ -62,7 +62,7 @@
                 "min_light": 0,
                 "max_light": 100,
                 "delta": 4,
-                "frequency": 5000
+                "frequency": 15000
             },
             "soilHumidity": {
                 "positions": 1,
@@ -109,7 +109,7 @@
                 "min_light": 0,
                 "max_light": 100,
                 "delta": 4,
-                "frequency": 5000
+                "frequency": 15000
             },
             "soilHumidity": {
                 "positions": 1,
