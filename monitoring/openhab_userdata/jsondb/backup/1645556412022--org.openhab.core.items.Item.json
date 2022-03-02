@@ -154,7 +154,7 @@
       "groupNames": [
         "FruitCultivationLocation"
       ],
-      "itemType": "Number",
+      "itemType": "Switch",
       "tags": [
         "Point",
         "Temperature"

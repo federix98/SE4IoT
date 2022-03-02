@@ -154,7 +154,7 @@
       "groupNames": [
         "FruitCultivationLocation"
       ],
-      "itemType": "Number",
+      "itemType": "Switch",
       "tags": [
         "Point",
         "Temperature"
@@ -248,7 +248,7 @@
         "Point",
         "Water"
       ],
-      "label": "PC_Sprinkler2",
+      "label": "Sprinkler2",
       "category": "water"
     }
   },

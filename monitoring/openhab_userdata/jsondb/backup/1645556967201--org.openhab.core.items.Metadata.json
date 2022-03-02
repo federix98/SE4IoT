@@ -41,7 +41,7 @@
         ],
         "uid": "listWidget:TomatoCultivation_TemperatureSet"
       },
-      "value": " ",
+      "value": "oh-stepper-item",
       "configuration": {
         "round": true
       }

@@ -154,7 +154,7 @@
       "groupNames": [
         "FruitCultivationLocation"
       ],
-      "itemType": "Number",
+      "itemType": "Switch",
       "tags": [
         "Point",
         "Temperature"
@@ -318,7 +318,7 @@
       "groupNames": [
         "PotatoCultivation"
       ],
-      "itemType": "Number",
+      "itemType": "Switch",
       "tags": [
         "Point",
         "Temperature"
@@ -527,7 +527,7 @@
       "groupNames": [
         "TomatoCultivationLocation"
       ],
-      "itemType": "Number",
+      "itemType": "Switch",
       "tags": [
         "Point",
         "Temperature"

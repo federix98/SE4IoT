@@ -112,12 +112,11 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
-        "crontab": "*/1 0-22 * * *",
+        "repeat": "5",
+        "crontab": "",
         "once": true,
         "onceDelay": "5",
         "topic": "",
-        "payload": "",
         "payloadType": "date",
         "x": 110,
         "y": 360,
@@ -1156,8 +1155,8 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
-        "crontab": "*/1 0-22 * * *",
+        "repeat": "5",
+        "crontab": "",
         "once": true,
         "onceDelay": "5",
         "topic": "",
@@ -2627,8 +2626,8 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
-        "crontab": "*/1 0-22 * * *",
+        "repeat": "5",
+        "crontab": "",
         "once": true,
         "onceDelay": "5",
         "topic": "",

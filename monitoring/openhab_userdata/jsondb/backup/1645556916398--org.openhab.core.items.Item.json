@@ -154,7 +154,7 @@
       "groupNames": [
         "FruitCultivationLocation"
       ],
-      "itemType": "Number",
+      "itemType": "Switch",
       "tags": [
         "Point",
         "Temperature"
@@ -248,7 +248,7 @@
         "Point",
         "Water"
       ],
-      "label": "PC_Sprinkler2",
+      "label": "Sprinkler2",
       "category": "water"
     }
   },
@@ -318,7 +318,7 @@
       "groupNames": [
         "PotatoCultivation"
       ],
-      "itemType": "Number",
+      "itemType": "Switch",
       "tags": [
         "Point",
         "Temperature"
@@ -442,7 +442,7 @@
         "Point",
         "Water"
       ],
-      "label": "TC_Sprinkler1",
+      "label": "Sprinkler1",
       "category": "water"
     }
   },
@@ -457,7 +457,7 @@
         "Point",
         "Water"
       ],
-      "label": "TC_Sprinkler2",
+      "label": "Sprinkler2",
       "category": "water"
     }
   },
@@ -472,7 +472,7 @@
         "Point",
         "Water"
       ],
-      "label": "TC_Sprinkler3",
+      "label": "Sprinkler3",
       "category": "water"
     }
   },
@@ -527,7 +527,7 @@
       "groupNames": [
         "TomatoCultivationLocation"
       ],
-      "itemType": "Number",
+      "itemType": "Switch",
       "tags": [
         "Point",
         "Temperature"

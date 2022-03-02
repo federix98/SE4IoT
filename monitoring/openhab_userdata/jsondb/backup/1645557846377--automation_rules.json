@@ -1,4 +1,32 @@
 {
+  "2890be18f8": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "script",
+          "configuration": {
+            "blockSource": "\u003cxml xmlns\u003d\"https://developers.google.com/blockly/xml\"\u003e\u003cvariables\u003e\u003cvariable id\u003d\"6@(l${2tU55T}%(R|m7m\"\u003etest\u003c/variable\u003e\u003c/variables\u003e\u003cblock type\u003d\"variables_set\" id\u003d\"%Kbh,e(fbJYJBkI{,x!$\" x\u003d\"148\" y\u003d\"278\"\u003e\u003cfield name\u003d\"VAR\" id\u003d\"6@(l${2tU55T}%(R|m7m\"\u003etest\u003c/field\u003e\u003cvalue name\u003d\"VALUE\"\u003e\u003cblock type\u003d\"math_number\" id\u003d\"EprQwqVyQ#sof?KR4i/K\"\u003e\u003cfield name\u003d\"NUM\"\u003e10\u003c/field\u003e\u003c/block\u003e\u003c/value\u003e\u003cnext\u003e\u003cblock type\u003d\"controls_if\" id\u003d\"G_`eHEgC6i+;$7|P@JxY\"\u003e\u003cvalue name\u003d\"IF0\"\u003e\u003cblock type\u003d\"logic_compare\" id\u003d\"V9Njj~}*.m~1G9sn/RWF\"\u003e\u003cfield name\u003d\"OP\"\u003eGTE\u003c/field\u003e\u003cvalue name\u003d\"A\"\u003e\u003cblock type\u003d\"oh_getitem_state\" id\u003d\"E*)3xr\u003dih_]/Dg41ZR{r\"\u003e\u003cvalue name\u003d\"itemName\"\u003e\u003cshadow type\u003d\"oh_item\" id\u003d\"F%u.WH:+s]OuSPVYH;X\u003d\"\u003e\u003cfield name\u003d\"itemName\"\u003eFruitCultivation_CO2\u003c/field\u003e\u003c/shadow\u003e\u003c/value\u003e\u003c/block\u003e\u003c/value\u003e\u003cvalue name\u003d\"B\"\u003e\u003cblock type\u003d\"variables_get\" id\u003d\"^Q%J-7^.0C|;s(veCW.w\"\u003e\u003cfield name\u003d\"VAR\" id\u003d\"6@(l${2tU55T}%(R|m7m\"\u003etest\u003c/field\u003e\u003c/block\u003e\u003c/value\u003e\u003c/block\u003e\u003c/value\u003e\u003cstatement name\u003d\"DO0\"\u003e\u003cblock type\u003d\"oh_event\" id\u003d\"}OaI:t-Fq,S8(yH{]@vh\"\u003e\u003cfield name\u003d\"eventType\"\u003esendCommand\u003c/field\u003e\u003cvalue name\u003d\"value\"\u003e\u003cshadow type\u003d\"text\" id\u003d\"h/DC`^z2F^[s*+C;Au{.\"\u003e\u003cfield name\u003d\"TEXT\"\u003eON\u003c/field\u003e\u003c/shadow\u003e\u003c/value\u003e\u003cvalue name\u003d\"itemName\"\u003e\u003cshadow type\u003d\"oh_item\" id\u003d\"mjttidKvD)Q,s,c|Rke8\"\u003e\u003cfield name\u003d\"itemName\"\u003eFruitCultivation_Co2Fan\u003c/field\u003e\u003c/shadow\u003e\u003c/value\u003e\u003c/block\u003e\u003c/statement\u003e\u003c/block\u003e\u003c/next\u003e\u003c/block\u003e\u003c/xml\u003e",
+            "script": "var test;\n\n\ntest \u003d 10;\nif (itemRegistry.getItem(\u0027FruitCultivation_CO2\u0027).getState() \u003e\u003d test) {\n  events.sendCommand(\u0027FruitCultivation_Co2Fan\u0027, \u0027ON\u0027);\n}\n",
+            "type": "application/javascript"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "2890be18f8",
+      "name": "l",
+      "tags": [
+        "Script"
+      ],
+      "visibility": "VISIBLE",
+      "description": ""
+    }
+  },
   "48d6aa5c7d": {
     "class": "org.openhab.core.automation.dto.RuleDTO",
     "value": {
@@ -18,12 +46,12 @@
       "configuration": {},
       "configDescriptions": [],
       "uid": "48d6aa5c7d",
-      "name": "Automatic Adaptation Scripts",
+      "name": "o",
       "tags": [
         "Script"
       ],
       "visibility": "VISIBLE",
-      "description": "Automatic Adaptation Scripts"
+      "description": "o"
     }
   },
   "4f17cf4ee2": {
@@ -57,6 +85,33 @@
       "name": "rule1",
       "tags": [],
       "visibility": "VISIBLE"
+    }
+  },
+  "a3ac454b70": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "script",
+          "configuration": {
+            "script": "// Set the optimized parameters for the PotatoCultivation\n\nevents.sendCommand(\u0027PotatoCultivation_AirHumiditySet\u0027, \u00275\u0027);\nevents.sendCommand(\u0027PotatoCultivation_SoilHumiditySet\u0027, \u00275\u0027);\nevents.sendCommand(\u0027PotatoCultivation_Light\u0027, \u00275\u0027);",
+            "type": "application/javascript"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "a3ac454b70",
+      "name": "PotatoCultivationAdaptation",
+      "tags": [
+        "Script"
+      ],
+      "visibility": "VISIBLE",
+      "description": ""
     }
   },
   "acc5ae4419": {

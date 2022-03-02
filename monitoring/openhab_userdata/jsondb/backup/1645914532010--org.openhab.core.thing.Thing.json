@@ -7,7 +7,7 @@
       "configuration": {
         "properties": {
           "certificatepin": true,
-          "clientid": "bc4e7c73-a224-46bc-9a92-b34cdc5d093f",
+          "clientid": "ab6bb078-635d-44c4-a8a3-63aadffd7d7a",
           "enableDiscovery": true,
           "host": "mosquitto",
           "keepAlive": 60,
@@ -240,37 +240,6 @@
           "autoUpdatePolicy": "DEFAULT"
         },
         {
-          "acceptedItemType": "Number",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mqtt",
-              "topic",
-              "5c17c82b8e",
-              "82bc2bf28a",
-              "PC_Temperature_Set"
-            ],
-            "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Temperature_Set"
-          },
-          "channelTypeUID": {
-            "segments": [
-              "mqtt",
-              "number"
-            ],
-            "uid": "mqtt:number"
-          },
-          "label": "PC_Temperature_Set",
-          "description": "",
-          "configuration": {
-            "properties": {
-              "commandTopic": "greenhouse/potato-cultivation-thermostat/thermostat/temperature/set"
-            }
-          },
-          "properties": {},
-          "defaultTags": [],
-          "autoUpdatePolicy": "DEFAULT"
-        },
-        {
           "acceptedItemType": "Switch",
           "kind": "STATE",
           "uid": {
@@ -398,6 +367,39 @@
             "properties": {
               "commandTopic": "greenhouse/potato-cultivation-fan/fan2/power/set",
               "stateTopic": "greenhouse/potato-cultivation-fan/fan2/power"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "5c17c82b8e",
+              "82bc2bf28a",
+              "PC_Temperature_Set"
+            ],
+            "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Temperature_Set"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "PC_Temperature_Set",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "greenhouse/potato-cultivation-thermostat/thermostat/temperature/set",
+              "off": "0",
+              "on": "1"
             }
           },
           "properties": {},
@@ -665,37 +667,6 @@
           "autoUpdatePolicy": "DEFAULT"
         },
         {
-          "acceptedItemType": "Number",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mqtt",
-              "topic",
-              "5c17c82b8e",
-              "ecb0b1ff9e",
-              "FC_Temperature_Set"
-            ],
-            "uid": "mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_Temperature_Set"
-          },
-          "channelTypeUID": {
-            "segments": [
-              "mqtt",
-              "number"
-            ],
-            "uid": "mqtt:number"
-          },
-          "label": "FC_Temperature_Set",
-          "description": "",
-          "configuration": {
-            "properties": {
-              "commandTopic": "greenhouse/potato-cultivation-thermostat/thermostat/temperature/set"
-            }
-          },
-          "properties": {},
-          "defaultTags": [],
-          "autoUpdatePolicy": "DEFAULT"
-        },
-        {
           "acceptedItemType": "Switch",
           "kind": "STATE",
           "uid": {
@@ -791,6 +762,39 @@
               "off": "0",
               "on": "1",
               "stateTopic": "greenhouse/fruit-cultivation-sprinkler/sprinkler2/power"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "5c17c82b8e",
+              "ecb0b1ff9e",
+              "FC_Temperature_Set"
+            ],
+            "uid": "mqtt:topic:5c17c82b8e:ecb0b1ff9e:FC_Temperature_Set"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "FC_Temperature_Set",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "greenhouse/fruit-cultivation-thermostat/thermostat/temperature/set",
+              "off": "0",
+              "on": "1"
             }
           },
           "properties": {},
@@ -1006,37 +1010,8 @@
           "description": "",
           "configuration": {
             "properties": {
+              "commandTopic": "greenhouse/tomato-cultivation-light/light/luminosity/set",
               "stateTopic": "greenhouse/tomato-cultivation-light/light/luminosity"
-            }
-          },
-          "properties": {},
-          "defaultTags": [],
-          "autoUpdatePolicy": "DEFAULT"
-        },
-        {
-          "acceptedItemType": "Number",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mqtt",
-              "topic",
-              "a1ee1690fe",
-              "TC_Temperature_Set"
-            ],
-            "uid": "mqtt:topic:a1ee1690fe:TC_Temperature_Set"
-          },
-          "channelTypeUID": {
-            "segments": [
-              "mqtt",
-              "number"
-            ],
-            "uid": "mqtt:number"
-          },
-          "label": "TC_Temperature_Set",
-          "description": "",
-          "configuration": {
-            "properties": {
-              "commandTopic": "greenhouse/tomato-cultivation-thermostat/thermostat1/temperature/set"
             }
           },
           "properties": {},
@@ -1199,6 +1174,38 @@
               "off": "0",
               "on": "1",
               "stateTopic": "greenhouse/tomato-cultivation-sprinkler/sprinkler3/power"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "a1ee1690fe",
+              "TC_Temperature_Set"
+            ],
+            "uid": "mqtt:topic:a1ee1690fe:TC_Temperature_Set"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "TC_Temperature_Set",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "greenhouse/tomato-cultivation-thermostat/thermostat1/temperature/set",
+              "off": "0",
+              "on": "1"
             }
           },
           "properties": {},

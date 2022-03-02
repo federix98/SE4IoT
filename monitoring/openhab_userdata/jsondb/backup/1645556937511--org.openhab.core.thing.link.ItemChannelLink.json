@@ -473,25 +473,6 @@
       "itemName": "PotatoCultivation_SoilPH"
     }
   },
-  "PotatoCultivation_TemperatureSet -\u003e mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Temperature_Set": {
-    "class": "org.openhab.core.thing.link.ItemChannelLink",
-    "value": {
-      "channelUID": {
-        "segments": [
-          "mqtt",
-          "topic",
-          "5c17c82b8e",
-          "82bc2bf28a",
-          "PC_Temperature_Set"
-        ],
-        "uid": "mqtt:topic:5c17c82b8e:82bc2bf28a:PC_Temperature_Set"
-      },
-      "configuration": {
-        "properties": {}
-      },
-      "itemName": "PotatoCultivation_TemperatureSet"
-    }
-  },
   "PotatoCultivation_temperature -\u003e mqtt:topic:5c17c82b8e:82bc2bf28a:PC_temperature": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
@@ -707,24 +688,6 @@
         "properties": {}
       },
       "itemName": "TomatoCultivation_Light"
-    }
-  },
-  "TomatoCultivation_TCLightSet -\u003e mqtt:topic:a1ee1690fe:TC_Light_Set": {
-    "class": "org.openhab.core.thing.link.ItemChannelLink",
-    "value": {
-      "channelUID": {
-        "segments": [
-          "mqtt",
-          "topic",
-          "a1ee1690fe",
-          "TC_Light_Set"
-        ],
-        "uid": "mqtt:topic:a1ee1690fe:TC_Light_Set"
-      },
-      "configuration": {
-        "properties": {}
-      },
-      "itemName": "TomatoCultivation_TCLightSet"
     }
   },
   "TomatoCultivation_TemperatureSet -\u003e mqtt:topic:a1ee1690fe:TC_Temperature_Set": {

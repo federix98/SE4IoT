@@ -25,7 +25,7 @@
         ],
         "uid": "listWidget:PotatoCultivation_TemperatureSet"
       },
-      "value": " ",
+      "value": "oh-stepper-item",
       "configuration": {
         "round": true
       }
@@ -41,7 +41,7 @@
         ],
         "uid": "listWidget:TomatoCultivation_TemperatureSet"
       },
-      "value": " ",
+      "value": "oh-stepper-item",
       "configuration": {
         "round": true
       }

@@ -18,12 +18,12 @@
       "configuration": {},
       "configDescriptions": [],
       "uid": "48d6aa5c7d",
-      "name": "Automatic Adaptation Scripts",
+      "name": "o",
       "tags": [
         "Script"
       ],
       "visibility": "VISIBLE",
-      "description": "Automatic Adaptation Scripts"
+      "description": "o"
     }
   },
   "4f17cf4ee2": {
@@ -57,6 +57,33 @@
       "name": "rule1",
       "tags": [],
       "visibility": "VISIBLE"
+    }
+  },
+  "a3ac454b70": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "script",
+          "configuration": {
+            "script": "// Set the optimized parameters for the PotatoCultivation\n\nevents.sendCommand(\u0027PotatoCultivation_AirHumiditySet\u0027, \u00275\u0027);\nevents.sendCommand(\u0027PotatoCultivation_SoilHumiditySet\u0027, \u00275\u0027);\nevents.sendCommand(\u0027PotatoCultivation_Light\u0027, \u00275\u0027);",
+            "type": "application/javascript"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "a3ac454b70",
+      "name": "PotatoCultivationAdaptation",
+      "tags": [
+        "Script"
+      ],
+      "visibility": "VISIBLE",
+      "description": ""
     }
   },
   "acc5ae4419": {
